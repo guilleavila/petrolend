@@ -1,0 +1,8 @@
+body{
+  margin-top: 55px;
+}
+
+#map {
+  height: 600px;
+  background-color: red;
+}
