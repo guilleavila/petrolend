@@ -15,6 +15,10 @@ app.locals.appTitle = `PETROL-END`;
 const indexRouter = require("./routes/index.routes");
 app.use("/", indexRouter);
 
+const authRouter = require("./routes/auth.routes")
+app.use('/', authRouter)
+
+
 require("./error-handling")(app);
 
 module.exports = app;
