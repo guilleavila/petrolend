@@ -2,13 +2,19 @@
 
   <div class="row">
 
-    <h1>A;ade tu nuevo vehiculo</h1>
+    <h1>Edite su {{brand}} {{model}}</h1>
 
-    <form action="/vehiculos/crear" method="POST">
+    <form action="/vehiculos/editar/{{_id}}" method="POST">
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="XXXXX" class="col-form-label">Marca</label>
-          <input type="text" id="XXXXX" class="form-control" name="brand" />
+          <input
+            type="text"
+            id="XXXXX"
+            class="form-control"
+            name="brand"
+            value="{{brand}}"
+          />
           <div class="form-text">Marca de su vehiculo</div>
         </div>
       </div>
@@ -16,7 +22,13 @@
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="XXXXX" class="col-form-label">Modelo</label>
-          <input type="text" id="XXXXX" class="form-control" name="model" />
+          <input
+            type="text"
+            id="XXXXX"
+            class="form-control"
+            name="model"
+            value="{{model}}"
+          />
         </div>
       </div>
       <br />
@@ -27,7 +39,9 @@
             class="form-select"
             aria-label="multiple select example"
             name="fuelType"
+            {{! VALOR POR DEFECTO CORREGIR }}
           >
+
             <option disabled>Elija su combustible...</option>
             <option value="Gasoleo A">Diesel</option>
             <option value="Gasoleo Premium">Diesel Premium</option>
@@ -46,13 +60,14 @@
             id="inputPassword6"
             class="form-control"
             name="averageFuel"
+            value="{{averageFuel}}"
           />
           <div class="form-text">l/100km</div>
         </div>
       </div>
 
       <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Guarda vehiculo</button>
+        <button type="submit" class="btn btn-primary mb-3">Editar vehiculo</button>
       </div>
     </form>
 
