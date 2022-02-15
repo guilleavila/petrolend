@@ -1,31 +1,31 @@
 <div class="container">
 
-<div class="row">
+  <div class="row">
 
-<h1>Listado vehiculos</h1>
+    <h1>Elige tu vehículo</h1>
 
-<ul>
-    {{#each vehicle}}
-  <li>
+    <ul>
+      {{#each vehicle}}
+      <li>
 
-      <a href="/"><button type="button" class="btn btn-primary">{{brand}}{{model}}</button></a>
+        <a href="/"><button type="button" class="btn btn-primary">{{brand}}{{model}}</button></a>
 
-  </li><br><br>
-  
- 
-{{/each}}
-<li>
-
-      <a class="btn btn-primary" href="/vehiculos/crear" role="button">A;adir vehiculo</a>
-
-  </li>
-</ul>
-
-</div>
+      </li><br><br>
 
 
-  
+      {{/each}}
+      <li>
+
+        <a class="btn btn-primary" href="/vehiculos/crear" role="button">A;adir vehiculo</a>
+
+      </li>
+    </ul>
 
   </div>
+
+
+
+
+</div>
 
 </div>

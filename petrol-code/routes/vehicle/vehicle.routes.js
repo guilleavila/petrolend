@@ -4,9 +4,11 @@ const router = require("express").Router();
 
 //list own vehicle
 router.get("/", (req, res, next) => {
-  Vehicle.find().then((vehicle) =>
-    res.render("./vehicle/list-vehicle", { vehicle })
-  );
+  Vehicle
+    .find({ owner: req.session.currentUser._id })
+    .then((vehicle) =>
+      res.render("./vehicle/list-vehicle", { vehicle })
+    );
 });
 
 //add new vehicle
@@ -17,7 +19,8 @@ router.get("/crear", (req, res, next) => {
 router.post("/crear", (req, res, next) => {
   const { brand, model, fuelType, averageFuel } = req.body;
 
-  Vehicle.create({ brand, model, fuelType, averageFuel })
+  Vehicle
+    .create({ brand, model, fuelType, averageFuel, owner: req.session.currentUser._id })
     .then(() => res.redirect("/vehiculos"))
     .catch((err) => console.log(err));
 });

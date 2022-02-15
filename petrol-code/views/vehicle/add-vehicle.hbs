@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="row">
 
     <h1>A;ade tu nuevo vehiculo</h1>
@@ -7,64 +8,40 @@
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="XXXXX" class="col-form-label">Marca</label>
-        </div>
-        <div class="col-auto">
           <input type="text" id="XXXXX" class="form-control" name="brand" />
-        </div>
-        <div class="col-auto">
-          <span id="XXXX" class="form-text">
-            Marca de su vehiculo
-          </span>
+          <div class="form-text">Marca de su vehiculo</div>
         </div>
       </div>
+
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="XXXXX" class="col-form-label">Modelo</label>
-        </div>
-        <div class="col-auto">
           <input type="text" id="XXXXX" class="form-control" name="model" />
         </div>
-        {{! <div class="col-auto">
-          <span id="XXXX" class="form-text">
-            Marca de su vehiculo
-          </span>
-        </div> }}
       </div>
-      <br />
-      <select
-        class="form-select"
-        aria-label="multiple select example"
-        name="fuelType"
-      >
 
-        <option selected>Elija su combustible...</option>
-        <option value="Gasoleo A">Diesel</option>
-        <option value="Gasoleo Premium">Diesel Premium</option>
-        <option value="Gasolina 95 E5">Gasolina 95</option>
-        <option value="Gasolina 98 E5">Gasolina 98</option>
-      </select>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
 
-      <br />
+          <select class="form-select" aria-label="multiple select example" name="fuelType">
+            <option disabled>Elija su combustible...</option>
+            <option value="Gasoleo A">Diesel</option>
+            <option value="Gasoleo Premium">Diesel Premium</option>
+            <option value="Gasolina 95 E5">Gasolina 95</option>
+            <option value="Gasolina 98 E5">Gasolina 98</option>
+          </select>
+
+
+        </div>
+      </div>
 
       <div class="row g-3 align-items-center">
         <div class="col-auto">
           <label for="inputPassword6" class="col-form-label">Consumo medio</label>
-        </div>
-        <div class="col-auto">
-          <input
-            type="number"
-            id="inputPassword6"
-            class="form-control"
-            name="averageFuel"
-          />
-        </div>
-        <div class="col-auto">
-          <span id="passwordHelpInline" class="form-text">
-            l/100km
-          </span>
+          <input type="number" id="inputPassword6" class="form-control" name="averageFuel" />
+          <div class="form-text">l/100km</div>
         </div>
       </div>
-      {{! OWNER }}
 
       <div class="col-auto">
         <button type="submit" class="btn btn-primary mb-3">Guarda vehiculo</button>
