@@ -10,7 +10,7 @@ https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.4169694
 https://maps.googleapis.com/maps/api/place/details/json
   ? place_id = ChIJi6C1MxquEmsR9 - c - 3O48ykI
     & key=AIzaSyCNqmPenrVlA0TSc1T5hMFVJxUmp7YPYjg
-
+hsdflahsdohfas?
 
 
 https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ1U_jKzsmQg0R8dq_KgbkyuQ&key=AIzaSyCNqmPenrVlA0TSc1T5hMFVJxUmp7YPYjg
