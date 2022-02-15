@@ -1,7 +1,6 @@
-const Vehicle = require("../../models/vehicle.model");
+const Vehicle = require("../models/vehicle.model")
 
-const router = require("express").Router();
-
+const router = require("express").Router()
 //list own vehicle
 router.get("/", (req, res, next) => {
   Vehicle
@@ -25,4 +24,4 @@ router.post("/crear", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-module.exports = router;
+module.exports = router

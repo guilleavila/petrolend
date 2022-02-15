@@ -1,10 +1,12 @@
 const router = require("express").Router();
 const ApiHandler = require('./../services/APIHandler')
 const PriceHandler = new ApiHandler()
+const isLoggedIn = require('./../middleware/route-guard.js')
+
 
 
 /* GET home page */
-router.get("/", (req, res, next) => {
+router.get("/", isLoggedIn, (req, res, next) => {
   res.render("index");
 });
 
