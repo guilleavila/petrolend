@@ -1,37 +1,10 @@
 let map
 let service
+let currentUserPos = {}
 
 function initMap() {
-    printMap()
     getCurrentCoords()
-
-    console.log(map)
-    let request = {
-        location: {
-            lat: currentUserPos.lat,
-            lng: currentUserPos.lng
-        },
-        radius: '1500',
-        type: ['gas_station']
-    }
-
-    service = new google.maps.places.PlacesService(map)
-    service.nearbySearch(request, callback)
-}
-
-function callback(results, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-        for (var i = 0; i < results.length; i++) {
-            console.log(results[i]);
-            // createMarker(results[i]);
-
-        }
-    }
-}
-
-function drawMarker(markerPosition) {
-    const { Marker } = google.maps
-    new Marker({ map, markerPosition })
+    printMap()
 }
 
 function printMap() {
@@ -46,16 +19,15 @@ function printMap() {
     )
 }
 
-let currentUserPos = {}
-
 function getCurrentCoords() {
     navigator.geolocation.getCurrentPosition(
         geolocationDetails => {
             // console.log(geolocationDetails)
             currentUserPos.lat = geolocationDetails.coords.latitude
             currentUserPos.lng = geolocationDetails.coords.longitude
-            console.log(currentUserPos)
+            console.log('Tu posición es ------>', currentUserPos)
             centerMap(geolocationDetails)
+            searchNearbyGas()
         },
         errorDetails => console.log(errorDetails)
     )
@@ -66,43 +38,77 @@ function centerMap(geolocationDetails) {
     const position = { lat: latitude, lng: longitude }
     const { Marker } = google.maps
 
-    map.setZoom(15)
+    map.setZoom(14.5)
     map.setCenter(position)
 
+    // marcador de geolocalización
     new Marker({ map, position })
 }
 
+function searchNearbyGas() {
+    let request = {
+        location: {
+            lat: currentUserPos.lat,
+            lng: currentUserPos.lng
+        },
+        radius: '1500',
+        type: ['gas_station']
+    }
+    service = new google.maps.places.PlacesService(map)
+    service.nearbySearch(request, callback)
+}
 
-// var map;
-// var service;
-// var infowindow;
+function callback(results, status) {
 
-// function initMap() {
-//     var pyrmont = new google.maps.LatLng(-33.8665433, 151.1956316);
+    const gasLocations = []
 
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         center: pyrmont,
-//         zoom: 15
-//     });
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < results.length; i++) {
+            console.log('Estas son las gasolineras cercanas ----->', results[i]);
+            // console.log('Esta es su location ------>', results[i].geometry.location.lat())
+            // console.log('Esta es su location ------>', results[i].geometry.location.lng())
 
-//     var request = {
-//         location: pyrmont,
-//         radius: '3500',
-//         type: ['gas_station']
-//     };
+            const gasStation = {
+                lat: results[i].geometry.location.lat(),
+                lng: results[i].geometry.location.lng(),
+                priceGA: "",
+                priceGP: "",
+                priceG95: "",
+                priceG98: "",
+            }
+            // pushear a un array los datos que queremos
+            gasLocations.push(gasStation)
+        }
+        // console.log(gasLocations)
 
-//     service = new google.maps.places.PlacesService(map);
-//     service.nearbySearch(request, callback);
-// }
 
-// function callback(results, status) {
+        // Hacer una llamada a axios.post para que mande al back la info de las gasolineras de google, pasándole
+        // los datos de localización
+        axios
+            .post('/', gasLocations)
+            .then(response => {
+                // console.log(response.data)
+                drawGas(response.data)
 
-//     const { Marker } = google.maps
+            })
+            .catch(err => console.log(err))
 
-//     if (status == google.maps.places.PlacesServiceStatus.OK) {
-//         for (var i = 0; i < results.length; i++) {
-//             console.log(results[i])
-//             // (results[i]);
-//         }
-//     }
-// }
+
+    }
+}
+
+function drawGas(gasStations) {
+    // console.log(gasStations)
+    gasStations.forEach(gasStation => {
+        const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
+
+        new google.maps.Marker({
+            position: LatLng,
+            map,
+            title: `${gasStation.priceG95}€/L G95`
+        })
+    });
+}
+
+// Lo que nos pase la api de precios lo almacena --> res.json
+// hacer el formateo en el backend

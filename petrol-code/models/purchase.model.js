@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const purchaseSchema = new Schema({
     amount: {
         type: String,
-        required: [true, 'Introduzca la marca del vehículo'],
+        required: [true, 'Introduzca la cantidad pagada'],
         trim: true
     },
     purchasePrice: Number,
