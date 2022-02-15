@@ -10,7 +10,6 @@ const vehicleSchema = new Schema({
     model: {
         type: String,
         default: 'not specified',
-        lowercase: true,
         trim: true
     },
     fuelType: {
