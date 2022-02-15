@@ -1,8 +1,18 @@
-body{
-  margin-top: 55px;
-}
-
 #map {
   height: 600px;
   background-color: red;
+}
+
+.navbar {
+  padding: 20px 65px;
+  margin-bottom: 25px;
+}
+
+#map{
+  margin-bottom: 50px;
+}
+
+.logout {
+  background: none;
+  border: 0px;
 }
