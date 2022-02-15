@@ -102,11 +102,25 @@ function drawGas(gasStations) {
     gasStations.forEach(gasStation => {
         const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
 
-        new google.maps.Marker({
+
+        const infowindow = new google.maps.InfoWindow({
+            content: `${gasStation.priceG95}€/L G95`
+        })
+
+        const marker = new google.maps.Marker({
             position: LatLng,
             map,
             title: `${gasStation.priceG95}€/L G95`
         })
+
+
+        infowindow.open({
+            anchor: marker,
+            map,
+            shouldFocus: false
+        })
+
+
     });
 }
 
