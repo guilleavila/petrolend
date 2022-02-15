@@ -17,7 +17,7 @@ const userSchema = new Schema({
     unique: [true, 'Este email ya está registrado']
     // match email válidos
   },
-  passwordHash: {
+  password: {
     type: String,
     required: [true, 'Introduzca una constraseña']
     //match

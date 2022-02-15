@@ -9,13 +9,14 @@ const hbs = require("hbs");
 const app = express();
 
 require("./config")(app);
+require('./config/session.config')(app)
 
 app.locals.appTitle = `PETROL-END`;
 
 const indexRouter = require("./routes/index.routes");
 app.use("/", indexRouter);
 
-const authRouter = require("./routes/auth.routes")
+const authRouter = require('./routes/auth.routes')
 app.use('/', authRouter)
 
 
