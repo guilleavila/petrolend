@@ -1,4 +1,4 @@
-const Vehicle = require("../models/vehicle.model");
+const Vehicle = require("../models/Vehicle.model");
 
 const router = require("express").Router();
 
