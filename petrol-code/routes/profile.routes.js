@@ -1,11 +1,8 @@
 const res = require("express/lib/response");
 const User = require("../models/User.model");
 const Vehicle = require("../models/Vehicle.model");
-<<<<<<< HEAD
-=======
 const Purchase = require("../models/Purchase.model");
 const isLoggedIn = require("../middleware/route-guard");
->>>>>>> rii
 const router = require("express").Router();
 
 //profile view
