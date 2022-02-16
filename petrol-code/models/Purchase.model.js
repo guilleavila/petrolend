@@ -7,8 +7,9 @@ const purchaseSchema = new Schema({
         required: [true, 'Introduzca la cantidad pagada'],
         trim: true
     },
-    purchasePrice: Number,
-    highestPrice: Number,
+    purchasePrice: String,
+    highestPrice: String,
+    saving: Number,
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
@@ -20,4 +21,5 @@ const purchaseSchema = new Schema({
 )
 
 const Purchase = mongoose.model('Purchase', purchaseSchema)
+Purchase.syncIndexes()
 module.exports = Purchase

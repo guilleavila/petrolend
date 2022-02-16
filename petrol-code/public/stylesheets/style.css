@@ -1,18 +1,24 @@
 #map {
-  height: 650px;
+  /* height: 650px; */
   background-color: red;
+  height: 100vh;
 }
 
 .navbar {
   padding: 20px 65px;
   margin-bottom: 25px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
 }
 
-#map{
-  margin-bottom: 50px;
-}
 
 .logout {
   background: none;
   border: 0px;
+}
+
+.first {
+  margin-top: 130px;
 }
