@@ -1,3 +1,42 @@
-<h1>DE PUTA MADRE
+<div class="container">
 
-</h1>
+  <h1>Perfil de: {{user.name}}</h1>
+
+  <div class="row">
+
+    <div class="col-md-6">
+
+      <h2>Aqui van los gastos</h2>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Listado de vehiculos</h2>
+      <ul>
+        {{#each vehicles}}
+          <li>
+
+            <a href="/">
+              <button type="button" class="btn btn-primary">
+                {{brand}}
+                {{model}}
+              </button>
+            </a>
+            <a
+              href="/vehiculos/editar/{{_id}}"
+              class="btn btn-warning"
+            >Editar</a>
+            <form
+              action="/vehiculos/eliminar/{{_id}}"
+              method="POST"
+              style="display: inline-block"
+            >
+              <button class="btn btn-danger">Eliminar</button>
+            </form>
+          </li><br /><br />
+
+        {{/each}}
+      </ul>
+    </div>
+
+  </div>
+</div>
