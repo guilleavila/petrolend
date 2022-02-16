@@ -4,6 +4,11 @@ const isLoggedIn = (req, res, next) => {
     })
 }
 
+const checkRole = (...admittedRoles) => (req, res, next) => {
+    admittedRoles.includes(req.session.currentUser.role) ? next() : res.redirect('/iniciar-sesion'), {
+        errorMessage: `Acceso denegado, solo administradores`
+    }
+}
 
 
-module.exports = isLoggedIn
+module.exports = { isLoggedIn, checkRole }

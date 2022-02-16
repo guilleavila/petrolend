@@ -1,22 +1,22 @@
 <div class="container">
 
   <div class="row">
-
+<div class="col-md-6">
     <h1>Elige tu vehículo</h1>
 
-    <ul>
+    <ul class="list-group">
       {{#each vehicle}}
-      <li>
-        <a href="/?fuel={{fuelType}}"><button type="button" class="btn btn-primary">{{brand}} {{model}}</button></a>
-        <a href="/vehiculos/editar/{{_id}}" class="btn btn-warning">Editar</a>
+      <li class="list-group-item list-group-item-primary">
+        <a href="/?fuel={{fuelType}}"><button type="button" class="btn btn-primary d-block" >{{brand}} {{model}}</button></a>
+        {{!-- <a href="/vehiculos/editar/{{_id}}" class="btn btn-warning">Editar</a>
         <form action="/vehiculos/eliminar/{{_id}}" method="POST" style="display: inline-block">
           <button class="btn btn-danger">Eliminar</button>
-        </form>
+        </form> --}}
       </li><br><br>
       {{/each}}
     </ul>
 
+  <a class="btn btn-primary d-block" href="/vehiculos/crear">Añadir vehiculo</a>
   </div>
-
-  <a class="btn btn-primary" href="/vehiculos/crear">Añadir vehiculo</a>
+</div>
 </div>

@@ -1,20 +1,21 @@
 const Vehicle = require("../models/Vehicle.model");
+const { isLoggedIn } = require('../middleware/route-guard')
 
 const router = require("express").Router();
 
 //list own vehicle
-router.get("/", (req, res, next) => {
+router.get("/", isLoggedIn, (req, res, next) => {
   Vehicle.find({ owner: req.session.currentUser._id }).then((vehicle) =>
     res.render("./vehicle/list-vehicle", { vehicle })
   );
 });
 
 //add new vehicle
-router.get("/crear", (req, res, next) => {
+router.get("/crear", isLoggedIn, (req, res, next) => {
   res.render("./vehicle/add-vehicle");
 });
 
-router.post("/crear", (req, res, next) => {
+router.post("/crear", isLoggedIn, (req, res, next) => {
   const { brand, model, fuelType, averageFuel } = req.body;
 
   Vehicle.create({
@@ -29,7 +30,7 @@ router.post("/crear", (req, res, next) => {
 });
 
 //edit vehicle
-router.get("/editar/:vehicle_id", (req, res, next) => {
+router.get("/editar/:vehicle_id", isLoggedIn, (req, res, next) => {
   const { vehicle_id } = req.params;
 
   Vehicle.findById(vehicle_id)
@@ -37,7 +38,7 @@ router.get("/editar/:vehicle_id", (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/editar/:vehicle_id", (req, res, next) => {
+router.post("/editar/:vehicle_id", isLoggedIn, (req, res, next) => {
   const { vehicle_id } = req.params;
   const { brand, model, fuelType, averageFuel } = req.body;
 
@@ -51,7 +52,7 @@ router.post("/editar/:vehicle_id", (req, res, next) => {
 });
 
 //delete vehicle
-router.post("/eliminar/:vehicle_id", (req, res, next) => {
+router.post("/eliminar/:vehicle_id", isLoggedIn, (req, res, next) => {
   const { vehicle_id } = req.params;
 
   Vehicle.findByIdAndDelete(vehicle_id)

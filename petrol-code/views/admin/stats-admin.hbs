@@ -1,0 +1,52 @@
+<div class="container">
+
+
+<h1>Estadisticas</h1>
+<hr>
+
+<div class="row">
+
+
+<div class="col-md-4">
+<h2>Listado de usuarios</h2>
+<br>
+<ol class="list-group list-group-numbered">
+    {{#each user}}
+  <li class="list-group-item">{{name}} 
+        <form action="/admin/eliminar/{{_id}}" method="POST" style="display: inline-block">
+            <button class="btn btn-danger">Eliminar</button>
+        </form></li>
+    {{/each}}
+</ol>
+
+</div>
+<div class="col-md-4">
+    <h2>Listado de vehiculos</h2>
+    <br>
+<ol class="list-group list-group-numbered">
+    {{#each vehicles}}
+  <li class="list-group-item">{{brand}} {{model}}</li>
+    {{/each}}
+</ol>
+</div>
+<div class="col-md-4">
+    <h2>Listado de gastos</h2>
+    <br>
+<ol class="list-group list-group-numbered">
+    {{!-- {{#each purchase}} --}}
+  <li class="list-group-item">Gastos 125</li>
+  <li class="list-group-item">Gastos 80</li>
+  <li class="list-group-item">Gastos 30</li>
+  <li class="list-group-item">Gastos 50</li>
+  <li class="list-group-item">Gastos 40</li>
+  <li class="list-group-item">Gastos 20</li>
+  <li class="list-group-item">Gastos 10</li>
+    {{!-- {{/each}} --}}
+</ol>
+</div>
+
+
+</div>
+
+
+</div>

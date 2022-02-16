@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const bcrypt = require('bcryptjs')
 const User = require('./../models/User.model')
+const { isLoggedIn } = require('../middleware/route-guard')
 const saltRounds = 10
-const isLoggedIn = require('../middleware/route-guard')
 
 // sign-up
 router.get('/registro', (req, res, next) => res.render('auth/signup-form'))
@@ -47,7 +47,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
 
 
 //logout
-router.post('/cerrar-sesion', (req, res, next) => {
+router.post('/cerrar-sesion', isLoggedIn, (req, res, next) => {
     req.app.locals.isLoggedIn = false
     req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })

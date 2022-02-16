@@ -118,7 +118,7 @@ function drawGas(gasStations) {
             const infowindow = new google.maps.InfoWindow({
                 content: contentForm
             })
-
+                
             const marker = new google.maps.Marker({
                 position: LatLng,
                 label: `${gasStation.price}€/L`,
