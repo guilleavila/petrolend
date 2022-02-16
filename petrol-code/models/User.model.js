@@ -26,7 +26,12 @@ const userSchema = new Schema({
     type: String,
     enum: ['ADMIN', 'USER'],
     default: 'USER'
+  },
+  currentFuel: {
+    type: String,
+    enum: ['Gasoleo A', 'Gasoleo Premium', 'Gasolina 95 E5', 'Gasolina 98 E5']
   }
+
 },
   {
     timestamps: true
@@ -34,4 +39,5 @@ const userSchema = new Schema({
 )
 
 const User = mongoose.model('User', userSchema)
+User.syncIndexes()  // para que sincronice los cambios en la base de datos
 module.exports = User

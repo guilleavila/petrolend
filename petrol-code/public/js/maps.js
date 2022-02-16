@@ -70,11 +70,7 @@ function callback(results, status) {
 
             const gasStation = {
                 lat: results[i].geometry.location.lat(),
-                lng: results[i].geometry.location.lng(),
-                priceGA: "",
-                priceGP: "",
-                priceG95: "",
-                priceG98: "",
+                lng: results[i].geometry.location.lng()
             }
             // pushear a un array los datos que queremos
             gasLocations.push(gasStation)
@@ -100,40 +96,45 @@ function callback(results, status) {
 function drawGas(gasStations) {
     // console.log(gasStations)
     gasStations.forEach(gasStation => {
-        const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
-        const contentForm =
-            `<form action="/gastos/crear" method="POST">` +
-            `<div class="row g-3 align-items-center">` +
-            `<div class="col-auto">` +
-            `<label class="col-form-label">Cantidad</label>` +
-            `<input type="text" class="form-control mb-2" name="amount" />` +
-            `<div class="form-text mb-2">TOTAL €</div>` +
-            `</div>` +
-            `</div>` +
-            `<input type="text" class="form-control" name="purchasePrice" value="${gasStation.priceG95}" />` +
-            `<div class="col-auto">` +
-            `<button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Nuevo gasto</button>` +
-            `</div>` +
-            `</form>`
 
-        const infowindow = new google.maps.InfoWindow({
-            content: contentForm
-        })
+        // si tiene precio que dibuje el marker
+        if (gasStation.price !== '') {
+            const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
+            const contentForm =
+                `<form action="/gastos/crear" method="POST">` +
+                `<div class="row g-3 align-items-center">` +
+                `<div class="col-auto">` +
+                `<label class="col-form-label">Cantidad</label>` +
+                `<input type="text" class="form-control mb-2" name="amount" />` +
+                `<div class="form-text mb-2">TOTAL €</div>` +
+                `</div>` +
+                `</div>` +
+                `<input type="text" class="form-control" name="purchasePrice" value="${gasStation.price}" />` +
+                `<div class="col-auto">` +
+                `<button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Nuevo gasto</button>` +
+                `</div>` +
+                `</form>`
 
-        const marker = new google.maps.Marker({
-            position: LatLng,
-            map,
-            title: `${gasStation.priceG95}€/L G95`
-        })
-
-        marker.addListener('click', () => {
-            //console.log(gasStation)
-            infowindow.open({
-                anchor: marker,
-                map,
-                shouldFocus: false
+            const infowindow = new google.maps.InfoWindow({
+                content: contentForm
             })
-        })
+
+            const marker = new google.maps.Marker({
+                position: LatLng,
+                label: `${gasStation.price}€/L`,
+                map,
+                title: `${gasStation.price}€/L`
+            })
+
+            marker.addListener('click', () => {
+                //console.log(gasStation)
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                    shouldFocus: false
+                })
+            })
+        }
 
     });
 }

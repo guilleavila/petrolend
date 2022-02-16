@@ -1,6 +1,6 @@
 const res = require("express/lib/response");
 const User = require("../models/User.model");
-const Vehicle = require("../models/vehicle.model");
+const Vehicle = require("../models/Vehicle.model");
 const router = require("express").Router();
 
 //profile view
