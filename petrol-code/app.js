@@ -26,6 +26,9 @@ app.use("/vehiculos", vehicleRouter);
 const profileRouter = require("./routes/profile.routes");
 app.use("/perfil", profileRouter);
 
+const purchaseRouter = require("./routes/purchase.routes");
+app.use("/gastos", purchaseRouter);
+
 require("./error-handling")(app);
 
 module.exports = app;

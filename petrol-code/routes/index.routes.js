@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router = require("express").Router()
 const ApiHandler = require('./../services/APIHandler')
 const PriceHandler = new ApiHandler()
 const isLoggedIn = require('./../middleware/route-guard.js')

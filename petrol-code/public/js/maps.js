@@ -101,10 +101,23 @@ function drawGas(gasStations) {
     // console.log(gasStations)
     gasStations.forEach(gasStation => {
         const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
-
+        const contentForm =
+            `<form action="/gastos/crear" method="POST">` +
+            `<div class="row g-3 align-items-center">` +
+            `<div class="col-auto">` +
+            `<label class="col-form-label">Cantidad</label>` +
+            `<input type="text" class="form-control mb-2" name="amount" />` +
+            `<div class="form-text mb-2">TOTAL €</div>` +
+            `</div>` +
+            `</div>` +
+            `<input type="text" class="form-control" name="purchasePrice" value="${gasStation.priceG95}" />` +
+            `<div class="col-auto">` +
+            `<button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Nuevo gasto</button>` +
+            `</div>` +
+            `</form>`
 
         const infowindow = new google.maps.InfoWindow({
-            content: `${gasStation.priceG95}€/L G95`
+            content: contentForm
         })
 
         const marker = new google.maps.Marker({
@@ -113,13 +126,14 @@ function drawGas(gasStations) {
             title: `${gasStation.priceG95}€/L G95`
         })
 
-
-        infowindow.open({
-            anchor: marker,
-            map,
-            shouldFocus: false
+        marker.addListener('click', () => {
+            //console.log(gasStation)
+            infowindow.open({
+                anchor: marker,
+                map,
+                shouldFocus: false
+            })
         })
-
 
     });
 }
