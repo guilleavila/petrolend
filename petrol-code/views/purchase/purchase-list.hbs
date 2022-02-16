@@ -1,0 +1,12 @@
+<div class="container first">
+    <h1>Tus gastos</h1>
+
+    <ul>
+        {{#each purchases}}
+        <li>
+            <p>Cantidad: {{amount}}€</p>
+            <p>Ahorro: {{saving}}€</p>
+        </li>
+        {{/each}}
+    </ul>
+</div>

@@ -19,8 +19,9 @@ router.get("/", isLoggedIn, (req, res, next) => {
   
 });
 
+
 router.post('/', isLoggedIn, (req, res, next) => {
- 
+
   let userP = User.findById(req.session.currentUser._id)
   let pricesP = PriceHandler.getAllGasStations()
 
@@ -32,17 +33,21 @@ router.post('/', isLoggedIn, (req, res, next) => {
           && formatNumber(elm.lng).includes(element['Longitud (WGS84)'].slice(0, 5)))      // quiero que compares de las de la api la lat y la lng
         // llamar al modelo del usuario, y solo coger la que tenga
         // tener solo una propiedad precio, en la que se guarda el precio del currentFuel que tiene el usuario en su modelo
-        if (values[0].currentFuel === 'Gasolina 98 E5') {
-          elm.price = temp['Precio Gasolina 98 E5']
-        } else if (values[0].currentFuel === 'Gasolina 95 E5') {
-          elm.price = temp['Precio Gasolina 95 E5']
-        } else if (values[0].currentFuel === 'Gasoleo A') {
-          elm.price = temp['Precio Gasoleo A']
-        } else if (values[0].currentFuel === 'Gasoleo Premium') {
-          elm.price = temp['Precio Gasoleo Premium']
-        }
+
+        const { currentFuel } = values[0]
+
+        elm.price = temp[`Precio ${currentFuel}`]
+
+        // if (currentFuel === 'Gasolina 98 E5') {
+        //   elm.price = temp['Precio Gasolina 98 E5']
+        // } else if (currentFuel === 'Gasolina 95 E5') {
+        //   elm.price = temp['Precio Gasolina 95 E5']
+        // } else if (currentFuel === 'Gasoleo A') {
+        //   elm.price = temp['Precio Gasoleo A']
+        // } else if (currentFuel === 'Gasoleo Premium') {
+        //   elm.price = temp['Precio Gasoleo Premium']
+        // }
       })
-      console.log(req.body)
       res.json(req.body)
     })
 })

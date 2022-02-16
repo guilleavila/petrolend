@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container first">
 
   <h1>Perfil de: {{user.name}}</h1>
 
@@ -13,26 +13,19 @@
       <h2>Listado de vehiculos</h2>
       <ul>
         {{#each vehicles}}
-          <li>
+        <li>
 
-            <a href="/">
-              <button type="button" class="btn btn-primary">
-                {{brand}}
-                {{model}}
-              </button>
-            </a>
-            <a
-              href="/vehiculos/editar/{{_id}}"
-              class="btn btn-warning"
-            >Editar</a>
-            <form
-              action="/vehiculos/eliminar/{{_id}}"
-              method="POST"
-              style="display: inline-block"
-            >
-              <button class="btn btn-danger">Eliminar</button>
-            </form>
-          </li><br /><br />
+          <a href="/">
+            <button type="button" class="btn btn-primary">
+              {{brand}}
+              {{model}}
+            </button>
+          </a>
+          <a href="/vehiculos/editar/{{_id}}" class="btn btn-warning">Editar</a>
+          <form action="/vehiculos/eliminar/{{_id}}" method="POST" style="display: inline-block">
+            <button class="btn btn-danger">Eliminar</button>
+          </form>
+        </li><br /><br />
 
         {{/each}}
       </ul>

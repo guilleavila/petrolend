@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 const User = require("../models/User.model");
 const Vehicle = require("../models/Vehicle.model");
 const Purchase = require("../models/Purchase.model");
@@ -12,15 +11,19 @@ router.get("/", isLoggedIn, (req, res, next) => {
   let vehiclePromise = Vehicle.find({ owner: req.session.currentUser._id });
   let purchasePromise = Purchase.find({ owner: req.session.currentUser._id });
 
-  Promise.all([userPromise, vehiclePromise, purchasePromise])
-    .then((values) => {res.render("./profile/detail-profile", 
-    {
-      user: values[0],
-      vehicles: values[1],
-      purchase: values[2]
-    });
-  })
-  .catch(err => console.log(err))
-});
+  Promise
+    .all([userPromise, vehiclePromise, purchasePromise])
+    .then((values) => {
+
+      const [user, vehicles, purchase] = values
+
+      res.render("./profile/detail-profile", {
+        user,
+        vehicles,
+        purchase,
+      })
+    })
+    .catch((err) => next(err))
+})
 
 module.exports = router;

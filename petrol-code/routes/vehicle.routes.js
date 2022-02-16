@@ -5,10 +5,13 @@ const router = require("express").Router();
 
 //list own vehicle
 router.get("/", isLoggedIn, (req, res, next) => {
-  Vehicle.find({ owner: req.session.currentUser._id }).then((vehicle) =>
-    res.render("./vehicle/list-vehicle", { vehicle })
-  );
-});
+  Vehicle
+    .find({ owner: req.session.currentUser._id })
+    .then((vehicle) => {
+      res.render("./vehicle/list-vehicle", { vehicle })
+    })
+    .catch(err => next(err))
+})
 
 //add new vehicle
 router.get("/crear", isLoggedIn, (req, res, next) => {

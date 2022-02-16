@@ -87,6 +87,10 @@ function callback(results, status) {
                 drawGas(response.data)
 
             })
+            // .then(gasStations => {
+            //     highestPriceGas(gasStations)
+            //     console.log(highestPrice)
+            // })
             .catch(err => console.log(err))
 
 
@@ -94,9 +98,11 @@ function callback(results, status) {
 }
 
 function drawGas(gasStations) {
-    // console.log(gasStations)
-    gasStations.forEach(gasStation => {
+    // console.log(highestPriceGas(gasStations))
+    let highestPrice = highestPriceGas(gasStations)
+    console.log(highestPrice)
 
+    gasStations.forEach(gasStation => {
         // si tiene precio que dibuje el marker
         if (gasStation.price !== '') {
             const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
@@ -110,6 +116,7 @@ function drawGas(gasStations) {
                 `</div>` +
                 `</div>` +
                 `<input type="text" class="form-control" name="purchasePrice" value="${gasStation.price}" />` +
+                `<input type="text" class="form-control" name="highestPrice" value="${highestPrice}" />` +
                 `<div class="col-auto">` +
                 `<button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Nuevo gasto</button>` +
                 `</div>` +
@@ -135,9 +142,18 @@ function drawGas(gasStations) {
                 })
             })
         }
-
-    });
+    })
 }
 
+function highestPriceGas(gasStations) {
+    const arr = []
+    gasStations.forEach(eachGas => {
+        arr.push(eachGas.price)
+    })
+
+    arr.sort()
+    const highest = arr[arr.length - 1]
+    return highest
+}
 // Lo que nos pase la api de precios lo almacena --> res.json
 // hacer el formateo en el backend
