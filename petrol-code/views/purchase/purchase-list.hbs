@@ -1,51 +1,34 @@
 <div class="container first">
-    <h1>Historial de ahorro</h1>
-<<<<<<< HEAD
-<hr>
+    <h1>Tus gastos</h1>
+    <hr>
     <ul class="list-group">
         {{#each fiteredArr}}
-        <li class="list-group-item">
-            <p>Gasto: {{amount}}€</p>
-            <p>Ahorro: {{saving}}€</p>
-
-            <a href="/gastos/editar/{{_id}}" class="btn btn-warning">Editar</a>
-
-            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
-                <button class="btn btn-danger">Eliminar</button>
-            </form>
-        </li>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+                <li>
+                    <div class="each-purchase d-flex justify-content-between">
+                        <div class="purchase-text">
+                            <p class="p-purchase">Gasto: {{amount}} €</p>
+                            <p class="p-no-margin">Ahorro: {{saving}} €</p>
+                        </div>
+                        <div class="purchase-buttons d-flex align-items-center">
+                            <a href="/gastos/editar/{{_id}}" class="btn btn-warning edit-btn">Editar</a>
+                            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
+                                <button class="btn btn-danger remove-btn">Eliminar</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
         {{/each}}
     </ul>
 
     <p class="d-none" id="pValue">1</p>
     <div class="nexPrev">
         <button id="prevBtn">Previus</button>
-         <button id="nextBtn">Next</button>
+        <button id="nextBtn">Next</button>
     </div>
 </div>
 
-<script src="/js/scriptFilter.js"></script>
-
-=======
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-12">
-            <ul>
-                {{#each purchases}}
-                <div class="row">
-                    <div class="col-12">
-                        <li class="prueba">
-                            <p>Cantidad: {{amount}}€</p>
-                            <p>Ahorro: {{saving}}€</p>
-                            <a href="/gastos/editar/{{_id}}" class="btn btn-warning">Editar</a>
-                            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
-                                <button class="btn btn-danger">Eliminar</button>
-                            </form>
-                        </li>
-                    </div>
-                </div>
-                {{/each}}
-            </ul>
-        </div>
-    </div>
-</div>
->>>>>>> 25fe0776dd60f198dda0ba68df27cd690ba865f0
+<script src="../../js/scriptFilter.js"></script>

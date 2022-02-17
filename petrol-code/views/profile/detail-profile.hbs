@@ -1,53 +1,48 @@
 <div class="container first text-center">
 
-  <h1>{{user.name}}</h1>
-<hr>
-  <div class="row">
+  <h1>¡Hola {{user.name}}!</h1>
+  <hr>
 
-    <div class="col-md-6 text-center">
-      <h2>Ahorro conseguido</h2>
-<<<<<<< HEAD
-      <br>
-      <p>{{totalSaving}} €</p>
-
-      <p>Ver todos tus  movimientos</p>
-      <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button">Detalles</button>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-sm-12">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 text-center">
+          <div class="section">
+            <h2>Has ahorrado...</h2>
+            <br>
+            <p class="total-saving">{{totalSaving}} €</p>
+            <div class="d-grid gap-2">
+              <button class="btn green-btn" type="button">Ver gastos</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+          <div class="section">
+            <h2>Cambia de vehículo</h2>
+            <br>
+            <ul class="list-group">
+              <div class="row">
+                {{#each vehicles}}
+                <div class="col-12">
+                  <li>
+                    <a class="btn btn-primary d-block vehicle-btn" href="/?fuel={{fuelType}}">
+                      {{!-- <img src="../../images/logo-white.png" alt="vehículo"> --}}
+                      <p class="vehicle-name">{{brand}} {{model}}</p>
+                      <p class="vehicle-fuel">{{fuelType}}</p>
+                      <p class="vehicle-average">{{averageFuel}} L/100km</p>
+                    </a>
+                    <a href="/vehiculos/editar/{{_id}}" class="btn btn-warning edit-btn profile-btns">Editar</a>
+                    <form action="/vehiculos/eliminar/{{_id}}" method="POST" style="display: inline-block">
+                      <button class="btn btn-danger remove-btn profile-btns">Eliminar</button>
+                    </form>
+                  </li>
+                </div>
+                {{/each}}
+              </div>
+            </ul>
+          </div>
+        </div>
       </div>
-      <br>
-=======
-      <ul>
-        {{#each purchase}}
-        <li>
-          <p>{{saving}}</p>
-        </li>
-        {{/each}}
-      </ul>
->>>>>>> 25fe0776dd60f198dda0ba68df27cd690ba865f0
-    </div>
-
-    <div class="col-md-6">
-      <h2>Cambia de vehiculo</h2>
-      <br>
-      <ul class="list-group">
-        {{#each vehicles}}
-        <li>
-
-          <a href="/">
-            <button type="button" class="btn btn-primary">
-              {{brand}}
-              {{model}}
-            </button>
-          </a>
-          <a href="/vehiculos/editar/{{_id}}" class="btn btn-warning">Editar</a>
-          <form action="/vehiculos/eliminar/{{_id}}" method="POST" style="display: inline-block">
-            <button class="btn btn-danger">Eliminar</button>
-          </form>
-        </li><br /><br />
-
-        {{/each}}
-      </ul>
-
     </div>
 
   </div>

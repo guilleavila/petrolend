@@ -5,14 +5,14 @@ const nextBtn = document.getElementById('nextBtn')
 
 prevBtn.onclick = () => {
     if (numberP.innerText > 1) {
-    numberP.innerHTML -= 1
-    location.href = `http://localhost:5005/gastos?page=${numberP.innerHTML}`
+        numberP.innerHTML -= 1
+        location.href = `http://localhost:3000/gastos?page=${numberP.innerHTML}`
     }
 }
 
 nextBtn.onclick = () => {
     if (numberP.innerText > 0) {
-    numberP.innerHTML = Number(numberP.innerHTML) + 1
-    location.href = `http://localhost:5005/gastos?page=${numberP.innerHTML}`
+        numberP.innerHTML = Number(numberP.innerHTML) + 1
+        location.href = `http://localhost:3000/gastos?page=${numberP.innerHTML}`
     }
 }

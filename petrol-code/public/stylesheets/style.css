@@ -24,6 +24,7 @@ h1{
 p {
   color: white;
   font-weight: 200;
+  margin-bottom: 5px;
 }
 
 li {
@@ -74,8 +75,6 @@ form {
     opacity: 1;
 }
 
-
-
 .loading {
     position: absolute;
     bottom: 0;
@@ -88,23 +87,8 @@ form {
 opacity: 0;
 } 
 
-/* .loading img {
-  opacity: 1;
-  transition: opacity 0.5s;
-  width: 100%;
-  height: 100vh;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-} */
-
-/* body {
-    overflow: hidden;
-} */
 .loader {
     position: absolute; 
-    /* position: relative; */
     display: flex;
     padding: 200px;
     align-items: center;
@@ -112,7 +96,6 @@ opacity: 0;
     top: 50%;
     left: 75%;
     transform: translate(-50%,-50%);
-    /* animation: rotate 9s linear infinite; */
     filter: blur(10px) contrast(15);
 }
 @keyframes rotate {
@@ -181,6 +164,8 @@ opacity: 0;
 .particle:nth-child(9) {
     animation-delay: .3s;
 }
+
+
 /* inicio de sesion */
 .auth-form{
   margin-top: 50px;
@@ -193,6 +178,7 @@ opacity: 0;
 .auth-sub{
   font-size: 1.2rem;
   margin-top: 25px; 
+  text-align: center;
 }
 
 .auth-btn{
@@ -269,21 +255,90 @@ opacity: 0;
   color: rgba(255, 255, 255, 0.3);
 }
 
-.add-btn {
-  margin: 40px 0 100px 0;
+.green-btn {
+  color: white;
+  margin: 40px 0 30px 0;
   padding: 10px 40px;
   align-self: center;
   background: none;
   border: 1px solid rgb(56,198,158);
 }
 
-.add-btn:hover{
+.green-btn:hover{
   background-color: rgb(41, 241, 208);
   border: 1px solid rgb(41, 241, 208);
   color: #181818;
 }
 
-.prueba{
-  background-color: red;
+.each-purchase{
+  background-color:rgba( 0, 0, 0, 0.05);
   margin: 10px 0px;
+  padding: 20px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 3px 0px 20px 1px rgba(32,137,167,0.1), -3px 0px 20px 5px rgba(56,198,158,0.1), 5px 5px 15px 5px rgba(0,0,0,0.3);
+}
+
+.each-purchase:hover{
+  box-shadow: 3px 0px 20px 1px rgba(32,137,167,0.6), -3px 0px 20px 5px rgba(56,198,158,0.3), 5px 5px 15px 5px rgba(0,0,0,0.3);
+}
+
+.edit-btn{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 174, 0, 0.8);
+  color: white;
+  width: 120px;
+  padding: 10px;
+}
+
+.edit-btn:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 174, 0, 0.1);
+  box-shadow: 0px 0px 10px 1px rgba(255, 174, 0, 0.8);
+  color: white;
+}
+
+.remove-btn{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(226, 0, 0, 0.8);
+  color: white;
+  width: 120px;
+  margin-left: 20px;
+  padding: 10px;
+
+}
+
+.remove-btn:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 174, 0, 0.1);
+  box-shadow: 0px 0px 10px 1px rgba(226, 0, 0, 0.8);
+  color: white;
+}
+
+.p-purchase{
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.p-no-margin{
+  margin: 0px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* PERFIL */
+.section{
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 30px 5px 30px 5px;
+  padding: 40px 40px 30px 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  box-shadow: 3px 0px 20px 1px rgba(32,137,167,0.1), -3px 0px 20px 5px rgba(56,198,158,0.1), 5px 5px 15px 5px rgba(0,0,0,0.3);
+}
+
+.total-saving{
+  font-size: 3rem;
+}
+
+.profile-btns{
+  margin-bottom: 20px;
 }
