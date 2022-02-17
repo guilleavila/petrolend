@@ -5,7 +5,7 @@ let currentUserPos = {}
 function initMap() {
     getCurrentCoords()
     printMap()
-    
+
 }
 
 function printMap() {
@@ -53,7 +53,7 @@ function centerMap(geolocationDetails) {
         animation: google.maps.Animation.DROP,
         map,
         icon: imageUser
-        
+
     })
 }
 
@@ -179,7 +179,7 @@ function highestPriceGas(gasStations) {
 // hacer el formateo en el backend
 
 function manipulateDoom() {
-    
+
     document.querySelector('.loading').classList.add('running')
     document.querySelector('#map').classList.add('loading')
 }

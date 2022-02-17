@@ -9,7 +9,7 @@ let prevPage = 0
 let nextPage = 0
 router.get("/", (req, res, next) => {
 
-  const {page} = req.query
+  const { page } = req.query
 
   switch (page) {
     case '1':
@@ -33,6 +33,7 @@ router.get("/", (req, res, next) => {
       const fiteredArr = purchases.splice(prevPage, nextPage)
       res.render('purchase/purchase-list', { fiteredArr, page })
     })
+    .catch(err => next(err))
 })
 
 // create purchase
@@ -93,7 +94,7 @@ function calculateSaving(amount, highestPrice, purchasePrice) {
   console.log('precio caro', highestPrice)
   console.log('precio elegido', purchasePrice)
   const expensiveAmount = ((stringToNumber(amount) * stringToNumber(highestPrice)) / stringToNumber(purchasePrice))
-  console.log('coste en caso de gasolinera cara',  expensiveAmount)
+  console.log('coste en caso de gasolinera cara', expensiveAmount)
   const saving = (expensiveAmount - stringToNumber(amount)).toFixed(2)
   console.log('ahorro', saving)
   return saving

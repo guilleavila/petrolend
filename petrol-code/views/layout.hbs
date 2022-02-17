@@ -27,44 +27,44 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {{#if isLoggedIn}}
-        <li class="nav-item">
-          <a class="nav-link" href="/">Mapa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/perfil">Perfil</a>
-        </li>
-        {{/if}}
-      </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {{#if isLoggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" href="/">Mapa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/perfil">Perfil</a>
+          </li>
+          {{/if}}
+        </ul>
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-            {{#unless isLoggedIn}}
-              <li class="nav-item">
-                <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/registro">Crear cuenta</a>
-              </li>
-            {{/unless}}
+          {{#unless isLoggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/registro">Crear cuenta</a>
+          </li>
+          {{/unless}}
 
-            {{#if isAdmin}}
-              <li class="nav-item">
-                <a class="nav-link" href="/admin">Estadisticas</a>
-              </li>
-            {{/if}}
+          {{#if isAdmin}}
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Estadisticas</a>
+          </li>
+          {{/if}}
 
-            {{#if isLoggedIn}}
-              <li class="nav-item">
-                <form action="/cerrar-sesion" method="POST">
-                  <button class="nav-link logout">Cerrar sesión</button>
-                </form>
-              </li>
-            {{/if}}
-          </ul>
-        </div>
+          {{#if isLoggedIn}}
+          <li class="nav-item">
+            <form action="/cerrar-sesion" method="POST">
+              <button class="nav-link logout">Cerrar sesión</button>
+            </form>
+          </li>
+          {{/if}}
+        </ul>
       </div>
+    </div>
     </div>
     </div>
     </div>

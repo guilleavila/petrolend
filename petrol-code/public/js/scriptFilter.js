@@ -12,7 +12,7 @@ prevBtn.onclick = () => {
 
 nextBtn.onclick = () => {
     if (numberP.innerText > 0) {
-    numberP.innerHTML = Number(numberP.innerHTML) + 1
-    location.href = `http://localhost:5005/gastos?page=${numberP.innerHTML}`
+        numberP.innerHTML = Number(numberP.innerHTML) + 1
+        location.href = `http://localhost:5005/gastos?page=${numberP.innerHTML}`
     }
 }
