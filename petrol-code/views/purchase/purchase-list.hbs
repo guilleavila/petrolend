@@ -6,6 +6,12 @@
         <li>
             <p>Cantidad: {{amount}}€</p>
             <p>Ahorro: {{saving}}€</p>
+
+            <a href="/gastos/editar/{{_id}}" class="btn btn-warning">Editar</a>
+
+            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
+                <button class="btn btn-danger">Eliminar</button>
+            </form>
         </li>
         {{/each}}
     </ul>
