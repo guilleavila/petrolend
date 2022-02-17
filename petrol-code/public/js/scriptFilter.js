@@ -5,7 +5,7 @@ const nextBtn = document.getElementById('nextBtn')
 
 prevBtn.onclick = () => {
     if (numberP.innerText > 1) {
-    numberP.innerHTML -= 1
+    numberP.innerHTML = Number(numberP.innerHTML) - 1
     location.href = `http://localhost:5005/gastos?page=${numberP.innerHTML}`
     }
 }

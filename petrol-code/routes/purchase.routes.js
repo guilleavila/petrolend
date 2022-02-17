@@ -19,6 +19,11 @@ router.get("/", (req, res, next) => {
     case '2':
       prevPage = 5
       nextPage = 4
+      break
+    case '3':
+      prevPage = 10
+      nextPage = 4
+      break
   }
 
   Purchase
@@ -26,8 +31,7 @@ router.get("/", (req, res, next) => {
     .sort({ createdAt: -1 })
     .then(purchases => {
       const fiteredArr = purchases.splice(prevPage, nextPage)
-      console.log(fiteredArr)
-      res.render('purchase/purchase-list', { fiteredArr })
+      res.render('purchase/purchase-list', { fiteredArr, page })
     })
 })
 
@@ -40,7 +44,7 @@ router.post("/crear", (req, res, next) => {
 
   Purchase
     .create({ amount, purchasePrice, highestPrice, saving, owner })
-    .then(() => res.redirect('/gastos'))
+    .then(() => res.redirect('/gastos?page=1'))
     .catch(err => next(err))
 })
 

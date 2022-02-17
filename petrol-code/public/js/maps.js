@@ -18,6 +18,7 @@ function printMap() {
             center: { lat: 40.41696947339613, lng: - 3.7034544574879935 },
             styles: mapStyles.prueba1,
             streetViewControl: false,
+            disableDefaultUI: true
         }
     )
 }
@@ -96,7 +97,7 @@ function callback(results, status) {
             .then(response => {
                 // console.log(response.data)
                 drawGas(response.data)
-                manipulateDoom()
+                manipulateDoom() 
             })
             // .then(gasStations => {
             //     highestPriceGas(gasStations)
@@ -181,5 +182,4 @@ function manipulateDoom() {
     
     document.querySelector('.loading').classList.add('running')
     document.querySelector('#map').classList.add('loading')
-    return console.log('holaaaa')
 }

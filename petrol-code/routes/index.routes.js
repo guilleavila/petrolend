@@ -14,10 +14,10 @@ router.get("/", isLoggedIn, (req, res, next) => {
   User
     .findByIdAndUpdate(req.session.currentUser._id, { currentFuel: fuel }, { new: true })
     .then(user => res.render("index"))
-    .catch(err => console.log(err))
+    .catch((err) => next(err))
 
   
-});
+})
 
 
 router.post('/', isLoggedIn, (req, res, next) => {
@@ -52,7 +52,7 @@ router.post('/', isLoggedIn, (req, res, next) => {
     })
 })
 
-module.exports = router;
+module.exports = router
 
 
 // meter en un archivo a parte en utils e importar

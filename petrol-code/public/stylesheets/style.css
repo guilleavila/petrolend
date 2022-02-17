@@ -103,14 +103,14 @@ opacity: 0;
     overflow: hidden;
 } */
 .loader {
-    position: absolute; 
+    /* position: absolute;  */
     /* position: relative; */
     display: flex;
-    padding: 200px;
+    /* padding: 200px; */
     align-items: center;
-    background: #fff;
+    /* background: red; */
     top: 50%;
-    left: 75%;
+    left: 85%;
     transform: translate(-50%,-50%);
     /* animation: rotate 9s linear infinite; */
     filter: blur(10px) contrast(15);

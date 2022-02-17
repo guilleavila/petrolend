@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const User = require('./../models/User.model')
-const Vehicle = require("../models/Vehicle.model");
+const Vehicle = require("../models/Vehicle.model")
 const Purchase = require("../models/Purchase.model")
 
 const { isLoggedIn, checkRole } = require("../middleware/route-guard")
@@ -24,7 +24,7 @@ router.get("/", isLoggedIn, checkRole("ADMIN"), (req, res, next) => {
             purchase: values[2]
         })
     })
-    .catch(err => console.log(err))
+    .catch((err) => next(err))
 })
 
 //delete user
@@ -34,8 +34,8 @@ router.post("/eliminar/:user_id", isLoggedIn, checkRole("ADMIN"), (req, res, nex
 
     User.findByIdAndDelete(user_id)
         .then(() => res.redirect("/admin"))
-        .catch((err) => console.log(err))
+        .catch((err) => next(err))
 })
 
-module.exports = router;
+module.exports = router
  
