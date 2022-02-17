@@ -14,7 +14,8 @@ function printMap() {
         document.getElementById('map'),
         {
             zoom: 8,
-            center: { lat: 40.41696947339613, lng: - 3.7034544574879935 }
+            center: { lat: 40.41696947339613, lng: - 3.7034544574879935 },
+            styles: mapStyles.prueba1
         }
     )
 }
@@ -42,7 +43,14 @@ function centerMap(geolocationDetails) {
     map.setCenter(position)
 
     // marcador de geolocalización
-    new Marker({ map, position })
+    // new Marker({ map, position })
+    const imageUser = '../images/user_.svg'
+    const marker = new google.maps.Marker({
+        position: position,
+        animation: google.maps.Animation.DROP,
+        map,
+        icon: imageUser
+    })
 }
 
 function searchNearbyGas() {
@@ -115,8 +123,8 @@ function drawGas(gasStations) {
                 `<div class="form-text mb-2">TOTAL €</div>` +
                 `</div>` +
                 `</div>` +
-                `<input type="text" class="form-control" name="purchasePrice" value="${gasStation.price}" />` +
-                `<input type="text" class="form-control" name="highestPrice" value="${highestPrice}" />` +
+                `<input type="hidden" class="hidden" name="purchasePrice" value="${gasStation.price}" />` +
+                `<input type="hidden" class="hidden" name="highestPrice" value="${highestPrice}" />` +
                 `<div class="col-auto">` +
                 `<button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Nuevo gasto</button>` +
                 `</div>` +
@@ -125,11 +133,19 @@ function drawGas(gasStations) {
             const infowindow = new google.maps.InfoWindow({
                 content: contentForm
             })
-                
+
+            const image = '../images/marker_.svg'
             const marker = new google.maps.Marker({
                 position: LatLng,
-                label: `${gasStation.price}€/L`,
+                label: {
+                    text: `${gasStation.price}€/L`,
+                    fontFamily: "Montserrat Alternates",
+                    color: "#181818",
+                    fontSize: "14px",
+                },
+                animation: google.maps.Animation.DROP,
                 map,
+                icon: image,
                 title: `${gasStation.price}€/L`
             })
 
