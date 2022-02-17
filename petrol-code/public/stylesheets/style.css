@@ -1,6 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;500&family=Montserrat:wght@200;400&display=swap');
+
+body {
+  background-color: #242424;
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: 200;
+}
+
+input, input:focus {
+ box-shadow: none!important;
+}
+
+h1, h2 {
+  color: white;
+  font-family: 'Montserrat', 'sans-serif';
+  font-weight: 400;
+  text-align: center;
+}
+
+h1{
+  font-size: 3rem;
+}
+
+p {
+  color: white;
+  font-weight: 200;
+}
+
+li {
+  list-style: none;
+}
+
 #map {
   /* height: 650px; */
-  background-color: red;
+  background-color: #181818;
   height: 100vh;
 }
 
@@ -21,7 +53,6 @@
 }
 
 .first {
-
   margin-top: 130px;
 }
 
@@ -149,4 +180,110 @@ opacity: 0;
 }
 .particle:nth-child(9) {
     animation-delay: .3s;
+}
+/* inicio de sesion */
+.auth-form{
+  margin-top: 50px;
+}
+
+.input-info{
+  color: rgb(165, 165, 165);
+}
+
+.auth-sub{
+  font-size: 1.2rem;
+  margin-top: 25px; 
+}
+
+.auth-btn{
+  background-color: #181818;
+  color: #fff;
+  padding: 10px 0px;
+  margin-top: 25px;
+}
+
+.auth-btn:hover{
+  color: #fff;
+  box-shadow: 3px 0px 20px 1px rgba(32,137,167,0.4), -3px 0px 20px 5px rgba(56,198,158,0.6), 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.top-login-btn{
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(56,198,158);
+}
+
+.top-login-btn:hover{
+  background-color: rgb(41, 241, 208);
+  border: 1px solid rgb(41, 241, 208);
+}
+
+.top-register-btn{
+  color: #181818;
+  margin-left: 15px;
+  background-color: rgb(41, 241, 208);
+}
+.top-register-btn:hover{
+  background-color: rgba(41, 241, 208, 0.8);
+}
+
+.form-input-gray, .form-input-gray:focus{
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 0px;
+  color: white;
+  outline: none !important;
+
+}
+
+
+
+/* vehicles */
+.vehicle-list{
+  margin-top: 30px;
+}
+
+.vehicle-btn {
+  margin: 40px 20px;
+  padding: 40px 0px;
+  background-color:rgba( 0, 0, 0, 0.05);
+  box-shadow: 3px 0px 20px 1px rgba(32,137,167,0.1), -3px 0px 20px 5px rgba(56,198,158,0.1), 5px 5px 15px 5px rgba(0,0,0,0.3);
+  border: 0px;
+}
+
+.vehicle-btn:hover {
+  background-color:rgba( 255, 255, 255, 0.0);
+  box-shadow: 3px 0px 20px 1px rgba(32,137,167,0.6), -3px 0px 20px 5px rgba(56,198,158,0.3), 5px 5px 15px 5px rgba(0,0,0,0.3);
+  border: 0px;
+}
+
+.vehicle-name{
+  font-size: 2rem;
+  font-family: 'Montserrat Alternates';
+  font-weight: 500;
+}
+
+.vehicle-fuel{
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.vehicle-average{
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.add-btn {
+  margin: 40px 0 100px 0;
+  padding: 10px 40px;
+  align-self: center;
+  background: none;
+  border: 1px solid rgb(56,198,158);
+}
+
+.add-btn:hover{
+  background-color: rgb(41, 241, 208);
+  border: 1px solid rgb(41, 241, 208);
+  color: #181818;
+}
+
+.prueba{
+  background-color: red;
+  margin: 10px 0px;
 }
