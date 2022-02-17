@@ -1,22 +1,25 @@
-<div class="container first">
+<div class="container first text-center">
 
-  <h1>Perfil de: {{user.name}}</h1>
-
+  <h1>{{user.name}}</h1>
+<hr>
   <div class="row">
 
-    <div class="col-md-6">
-
+    <div class="col-md-6 text-center">
       <h2>Ahorro conseguido</h2>
-      <ul>
-        {{#each purchase}}
-        <li>{{saving}}</li>
-        {{/each}}
-      </ul>
+      <br>
+      <p>{{totalSaving}} €</p>
+
+      <p>Ver todos tus  movimientos</p>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button">Detalles</button>
+      </div>
+      <br>
     </div>
 
     <div class="col-md-6">
-      <h2>Listado de vehiculos</h2>
-      <ul>
+      <h2>Cambia de vehiculo</h2>
+      <br>
+      <ul class="list-group">
         {{#each vehicles}}
         <li>
 
@@ -34,6 +37,7 @@
 
         {{/each}}
       </ul>
+
     </div>
 
   </div>

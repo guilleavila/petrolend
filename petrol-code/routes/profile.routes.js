@@ -9,18 +9,25 @@ const router = require("express").Router();
 router.get("/", isLoggedIn, (req, res, next) => {
   let userPromise = User.findById(req.session.currentUser._id);
   let vehiclePromise = Vehicle.find({ owner: req.session.currentUser._id });
-  let purchasePromise = Purchase.find({ owner: req.session.currentUser._id });
+  let purchasePromise = Purchase
+  .find({ owner: req.session.currentUser._id });
 
   Promise
     .all([userPromise, vehiclePromise, purchasePromise])
     .then((values) => {
 
       const [user, vehicles, purchase] = values
+      let totalSaving = 0
+    purchase.forEach(eachPurchase => {
+      totalSaving += eachPurchase.saving
+      totalSaving
+    })
 
       res.render("./profile/detail-profile", {
         user,
         vehicles,
         purchase,
+        totalSaving
       })
     })
     .catch((err) => next(err))

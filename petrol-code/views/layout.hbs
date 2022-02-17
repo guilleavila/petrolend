@@ -26,33 +26,20 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {{#if isLoggedIn}}
         <li class="nav-item">
           <a class="nav-link" href="/">Mapa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/vehiculos">Vehículos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gastos">Gastos</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="/perfil">Perfil</a>
         </li>
-        {{#if isAdmin}}
-        <li class="nav-item">
-          <a class="nav-link" href="/admin">Estadisticas</a>
-        </li>
-        {{/if}}
-
         {{/if}}
       </ul>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-<<<<<<< HEAD
             {{#unless isLoggedIn}}
               <li class="nav-item">
                 <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
@@ -62,16 +49,11 @@
               </li>
             {{/unless}}
 
-           {{#if isAdmin}}
+            {{#if isAdmin}}
               <li class="nav-item">
                 <a class="nav-link" href="/admin">Estadisticas</a>
               </li>
             {{/if}}
-
-
-
-
-
 
             {{#if isLoggedIn}}
               <li class="nav-item">
@@ -82,25 +64,6 @@
             {{/if}}
           </ul>
         </div>
-=======
-          {{#unless isLoggedIn}}
-          <li class="nav-item">
-            <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/registro">Crear cuenta</a>
-          </li>
-          {{/unless}}
-
-          {{#if isLoggedIn}}
-          <li class="nav-item">
-            <form action="/cerrar-sesion" method="POST">
-              <button class="nav-link logout">Cerrar sesión</button>
-            </form>
-          </li>
-          {{/if}}
-        </ul>
->>>>>>> c49facc60dd0ae825601bda5ca65b66292d83d75
       </div>
     </div>
     </div>

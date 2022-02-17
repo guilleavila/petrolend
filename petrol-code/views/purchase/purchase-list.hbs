@@ -1,10 +1,10 @@
 <div class="container first">
     <h1>Historial de ahorro</h1>
 <hr>
-    <ul>
-        {{#each purchases}}
-        <li>
-            <p>Cantidad: {{amount}}€</p>
+    <ul class="list-group">
+        {{#each fiteredArr}}
+        <li class="list-group-item">
+            <p>Gasto: {{amount}}€</p>
             <p>Ahorro: {{saving}}€</p>
 
             <a href="/gastos/editar/{{_id}}" class="btn btn-warning">Editar</a>
@@ -15,4 +15,13 @@
         </li>
         {{/each}}
     </ul>
+
+    <p class="d-none" id="pValue">1</p>
+    <div class="nexPrev">
+        <button id="prevBtn">Previus</button>
+         <button id="nextBtn">Next</button>
+    </div>
 </div>
+
+<script src="/js/scriptFilter.js"></script>
+

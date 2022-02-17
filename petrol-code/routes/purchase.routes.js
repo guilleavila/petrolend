@@ -5,11 +5,30 @@ const Purchase = require("../models/Purchase.model");
 // const PriceHandler = new ApiHandler();
 
 // all purchases
+let prevPage = 0
+let nextPage = 0
 router.get("/", (req, res, next) => {
+
+  const {page} = req.query
+
+  switch (page) {
+    case '1':
+      prevPage = 0
+      nextPage = 4
+      break
+    case '2':
+      prevPage = 5
+      nextPage = 4
+  }
+
   Purchase
     .find({ owner: req.session.currentUser._id })
     .sort({ createdAt: -1 })
-    .then(purchases => res.render('purchase/purchase-list', { purchases }))
+    .then(purchases => {
+      const fiteredArr = purchases.splice(prevPage, nextPage)
+      console.log(fiteredArr)
+      res.render('purchase/purchase-list', { fiteredArr })
+    })
 })
 
 // create purchase
@@ -78,14 +97,9 @@ function calculateSaving(amount, highestPrice, purchasePrice) {
 
 function stringToNumber(string) {
   console.log(string)
-<<<<<<< HEAD
-  const newNumber = parseInt(addDot(string) * 1000)
-  console.log(newNumber)
-=======
   // const newNumber = parseInt(addDot(string) * 1000)
   const newNumber = string.replace(',', '.') * 1
 
->>>>>>> c49facc60dd0ae825601bda5ca65b66292d83d75
   return newNumber
 }
 

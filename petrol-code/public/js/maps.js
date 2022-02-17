@@ -5,6 +5,7 @@ let currentUserPos = {}
 function initMap() {
     getCurrentCoords()
     printMap()
+    
 }
 
 function printMap() {
@@ -15,7 +16,8 @@ function printMap() {
         {
             zoom: 8,
             center: { lat: 40.41696947339613, lng: - 3.7034544574879935 },
-            styles: mapStyles.prueba1
+            styles: mapStyles.prueba1,
+            streetViewControl: false,
         }
     )
 }
@@ -50,6 +52,7 @@ function centerMap(geolocationDetails) {
         animation: google.maps.Animation.DROP,
         map,
         icon: imageUser
+        
     })
 }
 
@@ -93,7 +96,7 @@ function callback(results, status) {
             .then(response => {
                 // console.log(response.data)
                 drawGas(response.data)
-
+                manipulateDoom()
             })
             // .then(gasStations => {
             //     highestPriceGas(gasStations)
@@ -173,3 +176,10 @@ function highestPriceGas(gasStations) {
 }
 // Lo que nos pase la api de precios lo almacena --> res.json
 // hacer el formateo en el backend
+
+function manipulateDoom() {
+    
+    document.querySelector('.loading').classList.add('running')
+    document.querySelector('#map').classList.add('loading')
+    return console.log('holaaaa')
+}

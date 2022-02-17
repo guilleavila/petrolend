@@ -23,8 +23,6 @@
 .first {
 
   margin-top: 130px;
-<<<<<<< HEAD
-=======
 }
 
 .logo {
@@ -33,5 +31,122 @@
 
 form {
   margin: 0px;
->>>>>>> c49facc60dd0ae825601bda5ca65b66292d83d75
+}
+
+/* Transicion de carga */
+#map {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#map.loading {
+    opacity: 1;
+}
+
+
+
+.loading {
+    position: absolute;
+    bottom: 0;
+    border: none;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+} 
+ .running .loading {
+opacity: 0;
+} 
+
+/* .loading img {
+  opacity: 1;
+  transition: opacity 0.5s;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+} */
+
+/* body {
+    overflow: hidden;
+} */
+.loader {
+    position: absolute; 
+    /* position: relative; */
+    display: flex;
+    padding: 200px;
+    align-items: center;
+    background: #fff;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%,-50%);
+    /* animation: rotate 9s linear infinite; */
+    filter: blur(10px) contrast(15);
+}
+@keyframes rotate {
+    from {
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
+.particle {
+    background: #000;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.particle:first-child,
+.particle:last-child {
+    width: 25px;
+    height: 25px;
+}
+.particle:nth-child(1),
+.particle:nth-child(3),
+.particle:nth-child(5),
+.particle:nth-child(7),
+.particle:nth-child(9) {
+    animation: pulse 1.3s ease-in-out infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.9); }
+    70% { transform: scale(0.6); }
+    100% { transform: scale(1); }
+}
+.leftSpin {
+    animation: leftSpin 2.5s linear infinite;
+}
+@keyframes leftSpin {
+    from {
+        transform: rotate(0deg) translateX(50px);
+    }
+    to {
+        transform: rotate(360deg) translateX(50px);
+    }
+}
+.rightSpin {
+    animation: rightSpin 2s linear infinite;
+}
+@keyframes rightSpin {
+    from {
+        transform: rotate(360deg) translateX(50px);
+    }
+    to {
+        transform: rotate(0deg) translateX(50px);
+    }
+}
+.particle:nth-child(3) {
+    animation-delay: .25s;
+}
+.particle:nth-child(5) {
+    animation-delay: .75s;
+}
+.particle:nth-child(7) {
+    animation-delay: 1.5s;
+}
+.particle:nth-child(9) {
+    animation-delay: .3s;
 }
