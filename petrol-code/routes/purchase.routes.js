@@ -78,14 +78,9 @@ function calculateSaving(amount, highestPrice, purchasePrice) {
 
 function stringToNumber(string) {
   console.log(string)
-<<<<<<< HEAD
-  const newNumber = parseInt(addDot(string) * 1000)
-  console.log(newNumber)
-=======
   // const newNumber = parseInt(addDot(string) * 1000)
   const newNumber = string.replace(',', '.') * 1
 
->>>>>>> c49facc60dd0ae825601bda5ca65b66292d83d75
   return newNumber
 }
 

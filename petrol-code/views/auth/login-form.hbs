@@ -2,25 +2,27 @@
 
     <div class="row justify-content-center">
 
-        <div class="col-md-6">
+        <div class="col-lg-4">
 
-            <h1>Inicia sesión</h1>
-            <p>y encuentra los mejores precios</p>
+            <div class="titles">
+                <h1>Inicia sesión</h1>
+                <p class="auth-sub">y encuentra los mejores precios</p>
+            </div>
 
-            <form action="/iniciar-sesion" method="POST">
+            <form class="auth-form" action="/iniciar-sesion" method="POST">
 
                 <div class="mb-3">
-                    <label for="emailInput" class="form-label">Dirección de email</label>
-                    <input type="email" class="form-control" id="emailInput" name="email">
+                    <label for="emailInput" class="form-label input-info">Dirección de email</label>
+                    <input type="email" class="form-control form-input-gray" id="emailInput" name="email">
                 </div>
 
                 <div class="mb-3">
-                    <label for="pwdInput" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="pwdInput" name="userPwd">
+                    <label for="pwdInput" class="form-label input-info">Contraseña</label>
+                    <input type="password" class="form-control form-input-gray" id="pwdInput" name="userPwd">
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-dark block">Iniciar sesión</button>
+                    <button type="submit" class="btn auth-btn block">Iniciar sesión</button>
                 </div>
 
                 {{#if errorMessage}}

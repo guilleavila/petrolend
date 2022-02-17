@@ -59,7 +59,7 @@ function searchNearbyGas() {
             lat: currentUserPos.lat,
             lng: currentUserPos.lng
         },
-        radius: '15000',
+        radius: '1500',
         type: ['gas_station']
     }
     service = new google.maps.places.PlacesService(map)

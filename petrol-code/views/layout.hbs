@@ -20,77 +20,46 @@
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid d-flex justify-content-between">
 
-      <a class="navbar-brand" href="/"><img src="../images/logo-white.png" alt="logo" class="logo"></a>
+      <a class="navbar-brand" href="/"><img src="../images/logo.svg" alt="logo" class="logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        {{#if isLoggedIn}}
-        <li class="nav-item">
-          <a class="nav-link" href="/">Mapa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/vehiculos">Vehículos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/gastos">Gastos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/perfil">Perfil</a>
-        </li>
-        {{#if isAdmin}}
-        <li class="nav-item">
-          <a class="nav-link" href="/admin">Estadisticas</a>
-        </li>
-        {{/if}}
-
-        {{/if}}
-      </ul>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          {{#if isLoggedIn}}
+          <li class="nav-item">
+            <a class="nav-link" href="/">Mapa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/vehiculos">Vehículos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/gastos">Gastos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/perfil">Perfil</a>
+          </li>
+          {{/if}}
+        </ul>
+
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-<<<<<<< HEAD
-            {{#unless isLoggedIn}}
-              <li class="nav-item">
-                <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/registro">Crear cuenta</a>
-              </li>
-            {{/unless}}
-
-           {{#if isAdmin}}
-              <li class="nav-item">
-                <a class="nav-link" href="/admin">Estadisticas</a>
-              </li>
-            {{/if}}
-
-
-
-
-
-
-            {{#if isLoggedIn}}
-              <li class="nav-item">
-                <form action="/cerrar-sesion" method="POST">
-                  <button class="nav-link logout">Cerrar sesión</button>
-                </form>
-              </li>
-            {{/if}}
-          </ul>
-        </div>
-=======
           {{#unless isLoggedIn}}
           <li class="nav-item">
-            <a class="nav-link" href="/iniciar-sesion">Iniciar sesión</a>
+            <a class="btn top-login-btn" href="/iniciar-sesion">Iniciar sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/registro">Crear cuenta</a>
+            <a class="btn top-register-btn" href="/registro">Crear cuenta</a>
           </li>
           {{/unless}}
+
+          {{#if isAdmin}}
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Estadisticas</a>
+          </li>
+          {{/if}}
 
           {{#if isLoggedIn}}
           <li class="nav-item">
@@ -100,8 +69,8 @@
           </li>
           {{/if}}
         </ul>
->>>>>>> c49facc60dd0ae825601bda5ca65b66292d83d75
       </div>
+    </div>
     </div>
     </div>
   </nav>

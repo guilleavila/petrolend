@@ -1,18 +1,23 @@
 <div class="container first">
     <h1>Historial de ahorro</h1>
-<hr>
-    <ul>
-        {{#each purchases}}
-        <li>
-            <p>Cantidad: {{amount}}€</p>
-            <p>Ahorro: {{saving}}€</p>
-
-            <a href="/gastos/editar/{{_id}}" class="btn btn-warning">Editar</a>
-
-            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
-                <button class="btn btn-danger">Eliminar</button>
-            </form>
-        </li>
-        {{/each}}
-    </ul>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-sm-12">
+            <ul>
+                {{#each purchases}}
+                <div class="row">
+                    <div class="col-12">
+                        <li class="prueba">
+                            <p>Cantidad: {{amount}}€</p>
+                            <p>Ahorro: {{saving}}€</p>
+                            <a href="/gastos/editar/{{_id}}" class="btn btn-warning">Editar</a>
+                            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
+                                <button class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </li>
+                    </div>
+                </div>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </div>
