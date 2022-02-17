@@ -30,14 +30,20 @@ module.exports = router;
 
 
 function calculateSaving(amount, highestPrice, purchasePrice) {
-  const expensiveAmount = stringToNumber(amount) * stringToNumber(highestPrice) / stringToNumber(purchasePrice)
+  console.log('cantidad pagada', amount)
+  console.log('precio caro', highestPrice)
+  console.log('precio elegido', purchasePrice)
+  const expensiveAmount = ((stringToNumber(amount) * stringToNumber(highestPrice)) / stringToNumber(purchasePrice))
+  console.log('coste en caso de gasolinera cara',  expensiveAmount)
   const saving = (expensiveAmount - stringToNumber(amount)).toFixed(2)
+  console.log('ahorro', saving)
   return saving
 }
 
 function stringToNumber(string) {
   console.log(string)
   const newNumber = parseInt(addDot(string) * 1000)
+  console.log(newNumber)
   return newNumber
 }
 
@@ -46,5 +52,6 @@ function addDot(string) {
   let part1 = string.substring(0, index)
   let part2 = string.substring(index + 1, string.length)
   let formated = part1 + '.' + part2
+  console.log(formated)
   return formated
 }

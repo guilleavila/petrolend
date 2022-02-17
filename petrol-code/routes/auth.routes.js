@@ -39,6 +39,11 @@ router.post('/iniciar-sesion', (req, res, next) => {
             } else {
                 req.session.currentUser = user
                 req.app.locals.isLoggedIn = true
+                if (req.session.currentUser.role === "ADMIN"){
+                req.app.locals.isAdmin = true
+                } else {
+                    req.app.locals.isAdmin = false
+                }
                 res.redirect('/vehiculos')
             }
         })
@@ -49,6 +54,7 @@ router.post('/iniciar-sesion', (req, res, next) => {
 //logout
 router.post('/cerrar-sesion', isLoggedIn, (req, res, next) => {
     req.app.locals.isLoggedIn = false
+    req.app.locals.isAdmin = false
     req.session.destroy(() => res.redirect('/iniciar-sesion'))
 })
 
