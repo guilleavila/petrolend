@@ -1,24 +1,37 @@
 <div class="container first">
-    <h1>Modifica un gasto</h1>
 
-    <form action="/gastos/editar/{{_id}}" method="POST">
+    <div class="row justify-content-center">
 
-        <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                <label class="col-form-label">Cantidad</label>
-                <input type="text" class="form-control mb-2" name="amount" value="{{amount}}" />
-                <div class="form-text mb-2">TOTAL €</div>
-            </div>
-
-            <div class="col-auto">
-                <input type="hidden" class="form-control mb-2" name="purchasePrice" value="{{purchasePrice}}" />
-                <input type="hidden" class="form-control mb-2" name="highestPrice" value="{{highestPrice}}" />
+        <div class="col-lg-6">
+            <div class="titles">
+                <h1>Modifica un gasto</h1>
             </div>
         </div>
 
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Guardar</button>
-        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
 
-    </form>
+                <form action="/gastos/editar/{{_id}}" method="POST">
+
+                    <div class="mb-3">
+                        <div class="col-auto">
+                            <label class="col-form-label">Cantidad</label>
+                            <input type="text" class="form-control form-input-gray mb-2" name="amount"
+                                value="{{amount}}" />
+                            <div class="form-text mb-2">TOTAL €</div>
+                        </div>
+                        <div class="col-auto">
+                            <input type="hidden" class="form-control mb-2" name="purchasePrice"
+                                value="{{purchasePrice}}" />
+                            <input type="hidden" class="form-control mb-2" name="highestPrice"
+                                value="{{highestPrice}}" />
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn green-btn mb-3">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
