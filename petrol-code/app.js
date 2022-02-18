@@ -12,6 +12,7 @@ require("./config")(app)
 require("./config/session.config")(app)
 
 app.locals.appTitle = `PETROL-END`
+app.locals.logoImage = "/images/logo.svg"
 
 //ROUTES
 const indexRouter = require("./routes/index.routes");
@@ -30,6 +31,7 @@ const purchaseRouter = require("./routes/purchase.routes");
 app.use("/gastos", purchaseRouter)
 
 const adminRouter = require("./routes/admin.routes")
+const res = require("express/lib/response")
 app.use("/admin", adminRouter)
 
 require("./error-handling")(app)

@@ -1,75 +1,52 @@
 <div class="container first">
 
-  <div class="row">
-    <div class="col-md-8 justify-content-center"></div>
-    <h1>Edite su {{brand}} {{model}}</h1>
+  <div class="row justify-content-center">
 
-    <form action="/vehiculos/editar/{{_id}}" method="POST">
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="XXXXX" class="col-form-label">Marca</label>
-          <input
-            type="text"
-            id="XXXXX"
-            class="form-control"
-            name="brand"
-            value="{{brand}}"
-          />
-          <div class="form-text">Marca de su vehiculo</div>
-        </div>
+    <div class="col-lg-6">
+      <div class="titles">
+        <h1>Edita tu vehículo</h1>
       </div>
+    </div>
 
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="XXXXX" class="col-form-label">Modelo</label>
-          <input
-            type="text"
-            id="XXXXX"
-            class="form-control"
-            name="model"
-            value="{{model}}"
-          />
-        </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+
+        <form action="/vehiculos/editar/{{_id}}" method="POST">
+
+          <div class="mb-3">
+            <label class="col-form-label">Marca</label>
+            <input type="text" class="form-control form-input-gray" name="brand" value="{{brand}}" />
+            <div class="form-text">Marca de su vehiculo</div>
+          </div>
+
+          <div class="mb-3">
+            <label class="col-form-label">Modelo</label>
+            <input type="text" class="form-control form-input-gray" name="model" value="{{model}}" />
+          </div>
+
+          <div class="mb-3">
+            <label class="col-form-label">Combustible</label>
+            <select class="form-select form-input-gray" aria-label="multiple select example" name="fuelType">
+              <option disabled>Elija su combustible...</option>
+              <option value="Gasoleo A">Diesel</option>
+              <option value="Gasoleo Premium">Diesel Premium</option>
+              <option value="Gasolina 95 E5">Gasolina 95</option>
+              <option value="Gasolina 98 E5">Gasolina 98</option>
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputPassword6" class="col-form-label">Consumo medio</label>
+            <input type="number" id="inputPassword6" class="form-control form-input-gray" name="averageFuel"
+              value="{{averageFuel}}" />
+            <div class="form-text">l/100km</div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn green-btn mb-3">Editar vehiculo</button>
+          </div>
+        </form>
       </div>
-      <br />
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="XXXXX" class="col-form-label">Combustible</label>
-          <select
-            class="form-select"
-            aria-label="multiple select example"
-            name="fuelType"
-            {{! VALOR POR DEFECTO CORREGIR }}
-          >
-
-            <option disabled>Elija su combustible...</option>
-            <option value="Gasoleo A">Diesel</option>
-            <option value="Gasoleo Premium">Diesel Premium</option>
-            <option value="Gasolina 95 E5">Gasolina 95</option>
-            <option value="Gasolina 98 E5">Gasolina 98</option>
-          </select>
-
-        </div>
-      </div>
-
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="inputPassword6" class="col-form-label">Consumo medio</label>
-          <input
-            type="number"
-            id="inputPassword6"
-            class="form-control"
-            name="averageFuel"
-            value="{{averageFuel}}"
-          />
-          <div class="form-text">l/100km</div>
-        </div>
-      </div>
-
-      <div class="col-auto">
-        <button type="submit" class="btn btn-primary mb-3">Editar vehiculo</button>
-      </div>
-    </form>
-
+    </div>
   </div>
 </div>

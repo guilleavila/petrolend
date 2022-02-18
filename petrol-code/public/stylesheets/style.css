@@ -65,6 +65,10 @@ form {
   margin: 0px;
 }
 
+.estadisticas-btn{
+  margin-right: 20px;
+}
+
 /* Transicion de carga */
 #map {
     opacity: 0;
@@ -84,24 +88,17 @@ form {
     object-fit: cover;
 } 
  .running .loading {
-opacity: 0;
+    opacity: 0;
 } 
 
 .loader {
-<<<<<<< HEAD
-    /* position: absolute;  */
-    /* position: relative; */
-=======
-    position: absolute; 
->>>>>>> cac398601338f811a24533f652720a7113175a0d
     display: flex;
-    /* padding: 200px; */
+    padding: 100px;
     align-items: center;
-    /* background: red; */
     top: 50%;
-    left: 85%;
-    transform: translate(-50%,-50%);
-    filter: blur(10px) contrast(15);
+    left: 80%;
+    transform: translate(-50%,-50%) rotate(0deg);
+    filter: blur(8px) contrast(10);
 }
 @keyframes rotate {
     from {
@@ -112,10 +109,11 @@ opacity: 0;
     }
 }
 .particle {
-    background: #000;
+    background: rgba(230, 230, 230, 0.2);
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    box-shadow: 3px 0px 20px 1px rgba(0, 0, 0, 1);
 }
 .particle:first-child,
 .particle:last-child {
@@ -131,7 +129,7 @@ opacity: 0;
 }
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.9); }
+    50% { transform: scale(2); }
     70% { transform: scale(0.6); }
     100% { transform: scale(1); }
 }
@@ -161,7 +159,7 @@ opacity: 0;
     animation-delay: .25s;
 }
 .particle:nth-child(5) {
-    animation-delay: .75s;
+    animation-delay: 1s;
 }
 .particle:nth-child(7) {
     animation-delay: 1.5s;
@@ -201,6 +199,7 @@ opacity: 0;
 .top-login-btn{
   color: rgb(255, 255, 255);
   border: 1px solid rgb(56,198,158);
+  margin-left: 20px;
 }
 
 .top-login-btn:hover{
@@ -260,6 +259,10 @@ opacity: 0;
   color: rgba(255, 255, 255, 0.3);
 }
 
+.new-vehicle-h1{
+  margin-bottom: 50px;
+}
+
 .green-btn {
   color: white;
   margin: 40px 0 30px 0;
@@ -273,6 +276,35 @@ opacity: 0;
   background-color: rgb(41, 241, 208);
   border: 1px solid rgb(41, 241, 208);
   color: #181818;
+}
+
+.infowindow-btn {
+  color: #181818;
+  margin: 10px 0 30px 0;
+  padding: 10px 40px;
+  align-self: center;
+  background: none;
+  border: 1px solid rgb(56,198,158);
+}
+
+.infowindow-btn:hover{
+  background-color: rgb(41, 241, 208);
+  border: 1px solid rgb(41, 241, 208);
+  color: #181818;
+}
+
+.green-btn-dark {
+  color: #181818;
+  margin: 40px 0 30px 0;
+  padding: 10px 40px;
+  align-self: center;
+  background: none;
+  border: 1px solid rgb(56,198,158);
+}
+
+.green-btn-dark:hover{
+  background-color: rgb(41, 241, 208);
+  border: 1px solid rgb(41, 241, 208);
 }
 
 .each-purchase{
@@ -292,7 +324,7 @@ opacity: 0;
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 174, 0, 0.8);
   color: white;
-  width: 120px;
+  width: 100%;
   padding: 10px;
 }
 
@@ -307,10 +339,12 @@ opacity: 0;
   background-color: rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(226, 0, 0, 0.8);
   color: white;
-  width: 120px;
-  margin-left: 20px;
+  width: 100%;
   padding: 10px;
+}
 
+.remove-trampa {
+  width: 183px;
 }
 
 .remove-btn:hover{
@@ -328,7 +362,21 @@ opacity: 0;
 .p-no-margin{
   margin: 0px;
   color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9em;
 }
+
+.page-btn{
+  width: 100px;
+  color: #fff;
+  margin: 20px 15px 40px 15px;
+  border: 1px solid rgb(41, 241, 208);
+}
+
+.page-btn:hover{
+  color: #181818;
+  background-color: rgb(41, 241, 208);
+}
+
 
 /* PERFIL */
 .section{
@@ -346,4 +394,32 @@ opacity: 0;
 
 .profile-btns{
   margin-bottom: 20px;
+}
+
+/* MAP
+.gm-style .gm-style-iw-c {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    transform: translate3d(-50%,-100%,0);
+    background-color: black;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 7px 1px rgb(0 0 0 / 30%);
+} */
+
+.prueba{
+  background-color: red;
+}
+
+
+/* ESTADÍSTICAS */
+.list{
+  background-color: #181818;
+  margin: 10px 0;
+  height: 70px;
+  border-radius: 10px;
+  color: white;
 }

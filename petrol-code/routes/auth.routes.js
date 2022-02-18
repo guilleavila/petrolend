@@ -14,7 +14,7 @@ router.post('/registro', (req, res, next) => {
         .genSalt(saltRounds)
         .then(salt => bcrypt.hash(userPwd, salt))
         .then(hashedPassword => User.create({ ...req.body, password: hashedPassword }))
-        .then(() => res.redirect('/'))
+        .then(() => res.redirect('/iniciar-sesion'))
         .catch(err => next(err))
 })
 
@@ -39,8 +39,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
             } else {
                 req.session.currentUser = user
                 req.app.locals.isLoggedIn = true
-                if (req.session.currentUser.role === "ADMIN"){
-                req.app.locals.isAdmin = true
+                if (req.session.currentUser.role === "ADMIN") {
+                    req.app.locals.isAdmin = true
                 } else {
                     req.app.locals.isAdmin = false
                 }

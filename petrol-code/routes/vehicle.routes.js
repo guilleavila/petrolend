@@ -36,7 +36,8 @@ router.post("/crear", isLoggedIn, (req, res, next) => {
 router.get("/editar/:vehicle_id", isLoggedIn, (req, res, next) => {
   const { vehicle_id } = req.params
 
-  Vehicle.findById(vehicle_id)
+  Vehicle
+    .findById(vehicle_id)
     .then((vehicle) => res.render("vehicle/edit-vehicle", vehicle))
     .catch((err) => next(err))
 })
@@ -50,7 +51,7 @@ router.post("/editar/:vehicle_id", isLoggedIn, (req, res, next) => {
     { brand, model, fuelType, averageFuel },
     { new: true }
   )
-    .then((updatedVehicle) => res.redirect("/vehiculos"))
+    .then((updatedVehicle) => res.redirect("/perfil"))
     .catch((err) => next(err))
 })
 
@@ -59,7 +60,7 @@ router.post("/eliminar/:vehicle_id", isLoggedIn, (req, res, next) => {
   const { vehicle_id } = req.params
 
   Vehicle.findByIdAndDelete(vehicle_id)
-    .then(() => res.redirect("/vehiculos"))
+    .then(() => res.redirect("/perfil"))
     .catch((err) => next(err))
 })
 

@@ -2,6 +2,7 @@ const router = require("express").Router()
 const ApiHandler = require('./../services/APIHandler')
 const PriceHandler = new ApiHandler()
 const { isLoggedIn, checkRole } = require('./../middleware/route-guard.js')
+const { formatNumber } = require('../utils/index')
 const User = require('../models/User.model')
 
 
@@ -16,7 +17,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
     .then(user => res.render("index"))
     .catch((err) => next(err))
 
-  
+
 })
 
 
@@ -56,11 +57,11 @@ module.exports = router
 
 
 // meter en un archivo a parte en utils e importar
-function formatNumber(number) {
-  let dotNotation = String(Math.trunc(number * 1000) / 1000)
-  let index = dotNotation.indexOf('.')
-  let part1 = dotNotation.substring(0, index)
-  let part2 = dotNotation.substring(index + 1, dotNotation.length)
-  let formated = part1 + ',' + part2
-  return formated
-}
+// function formatNumber(number) {
+//   let dotNotation = String(Math.trunc(number * 1000) / 1000)
+//   let index = dotNotation.indexOf('.')
+//   let part1 = dotNotation.substring(0, index)
+//   let part2 = dotNotation.substring(index + 1, dotNotation.length)
+//   let formated = part1 + ',' + part2
+//   return formated
+// }

@@ -97,7 +97,7 @@ function callback(results, status) {
             .then(response => {
                 // console.log(response.data)
                 drawGas(response.data)
-                manipulateDoom() 
+                manipulateDoom()
             })
             // .then(gasStations => {
             //     highestPriceGas(gasStations)
@@ -119,7 +119,7 @@ function drawGas(gasStations) {
         if (gasStation.price !== '') {
             const LatLng = { lat: gasStation.lat, lng: gasStation.lng }
             const contentForm =
-                `<form action="/gastos/crear" method="POST">` +
+                `<form action="/gastos/crear" method="POST" class="new-purchase">` +
                 `<div class="row g-3 align-items-center">` +
                 `<div class="col-auto">` +
                 `<label class="col-form-label">Cantidad</label>` +
@@ -130,12 +130,13 @@ function drawGas(gasStations) {
                 `<input type="hidden" class="hidden" name="purchasePrice" value="${gasStation.price}" />` +
                 `<input type="hidden" class="hidden" name="highestPrice" value="${highestPrice}" />` +
                 `<div class="col-auto">` +
-                `<button type="submit" class="btn btn-primary mb-3 nuevo-gasto">Nuevo gasto</button>` +
+                `<button type="submit" class="btn infowindow-btn mb-3 nuevo-gasto">Nuevo gasto</button>` +
                 `</div>` +
                 `</form>`
 
             const infowindow = new google.maps.InfoWindow({
-                content: contentForm
+                content: contentForm,
+                style: "background-color: red"
             })
 
             const image = '../images/marker_.svg'

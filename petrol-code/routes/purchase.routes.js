@@ -1,13 +1,11 @@
 const router = require("express").Router();
+const { isLoggedIn } = require("../middleware/route-guard");
+const { calculateSaving } = require('../utils/index')
 const Purchase = require("../models/Purchase.model");
 
-// const ApiHandler = require("./../services/APIHandler");
-// const PriceHandler = new ApiHandler();
-
-// all purchases
 let prevPage = 0
 let nextPage = 0
-router.get("/", (req, res, next) => {
+router.get("/", isLoggedIn, (req, res, next) => {
 
   const { page } = req.query
 
@@ -24,6 +22,14 @@ router.get("/", (req, res, next) => {
       prevPage = 10
       nextPage = 4
       break
+    case '4':
+      prevPage = 15
+      nextPage = 4
+      break
+    case '5':
+      prevPage = 20
+      nextPage = 4
+      break
   }
 
   Purchase
@@ -38,7 +44,7 @@ router.get("/", (req, res, next) => {
 
 // create purchase
 
-router.post("/crear", (req, res, next) => {
+router.post("/crear", isLoggedIn, (req, res, next) => {
   const { amount, purchasePrice, highestPrice } = req.body;
   const owner = req.session.currentUser._id
   const saving = calculateSaving(amount, highestPrice, purchasePrice)
@@ -51,12 +57,12 @@ router.post("/crear", (req, res, next) => {
 
 
 // edit 
-router.get('/editar/:id', (req, res, next) => {
+router.get('/editar/:id', isLoggedIn, (req, res, next) => {
   const { id } = req.params
 
   Purchase
     .findById(id)
-    .then(drone => res.render('purchase/purchase-edit', drone))
+    .then(purchase => res.render('purchase/purchase-edit', purchase))
     .catch(err => next(err))
 })
 
@@ -74,7 +80,7 @@ router.post('/editar/:id', (req, res, next) => {
 
 // delete
 
-router.post('/eliminar-gasto/:id', (req, res, next) => {
+router.post('/eliminar-gasto/:id', isLoggedIn, (req, res, next) => {
   const { id } = req.params
 
   Purchase
@@ -85,34 +91,3 @@ router.post('/eliminar-gasto/:id', (req, res, next) => {
 
 
 module.exports = router;
-
-
-// meter en utils
-
-function calculateSaving(amount, highestPrice, purchasePrice) {
-  console.log('cantidad pagada', amount)
-  console.log('precio caro', highestPrice)
-  console.log('precio elegido', purchasePrice)
-  const expensiveAmount = ((stringToNumber(amount) * stringToNumber(highestPrice)) / stringToNumber(purchasePrice))
-  console.log('coste en caso de gasolinera cara', expensiveAmount)
-  const saving = (expensiveAmount - stringToNumber(amount)).toFixed(2)
-  console.log('ahorro', saving)
-  return saving
-}
-
-function stringToNumber(string) {
-  console.log(string)
-  // const newNumber = parseInt(addDot(string) * 1000)
-  const newNumber = string.replace(',', '.') * 1
-
-  return newNumber
-}
-
-function addDot(string) {
-  let index = string.indexOf(',')
-  let part1 = string.substring(0, index)
-  let part2 = string.substring(index + 1, string.length - 1)
-  let formated = part1 + '.' + part2
-  console.log(formated)
-  return formated
-}

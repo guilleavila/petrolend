@@ -10,7 +10,7 @@ router.get("/", isLoggedIn, (req, res, next) => {
   let userPromise = User.findById(req.session.currentUser._id)
   let vehiclePromise = Vehicle.find({ owner: req.session.currentUser._id })
   let purchasePromise = Purchase
-  .find({ owner: req.session.currentUser._id })
+    .find({ owner: req.session.currentUser._id })
 
   Promise
     .all([userPromise, vehiclePromise, purchasePromise])
@@ -18,15 +18,16 @@ router.get("/", isLoggedIn, (req, res, next) => {
 
       const [user, vehicles, purchase] = values
       let totalSaving = 0
-    purchase.forEach(eachPurchase => {
-      totalSaving += eachPurchase.saving
-    })
+      purchase.forEach(eachPurchase => {
+        totalSaving += Math.round(eachPurchase.saving * 100)
+      })
+      let finalSaving = totalSaving / 100
 
       res.render("./profile/detail-profile", {
         user,
         vehicles,
         purchase,
-        totalSaving
+        finalSaving
       })
     })
     .catch((err) => next(err))

@@ -1,47 +1,39 @@
 <div class="container first">
 
+    <h1>Estadísticas</h1>
 
-<h1>Estadisticas</h1>
-<hr>
+    <div class="row d-flex justify-content-center">
 
-<div class="row">
+        <div class="col-md-10 col-sm-12">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 text-center">
+                    <div class="section">
+                        <h2>Usuarios</h2>
+                        <br>
+                        <ul class="list-group">
+                            {{#each user}}
+                            <li class="list d-flex justify-content-around align-items-center">{{name}}
+                                <form action="/admin/eliminar/{{_id}}" method="POST" style="display: inline-block">
+                                    <button class="btn remove-btn">Eliminar</button>
+                                </form>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="section">
+                        <h2>Vehículos</h2>
+                        <br>
+                        <ul class="list-group">
+                            {{#each vehicles}}
+                            <li class="list d-flex justify-content-center align-items-center">{{brand}} {{model}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-<div class="col-md-6">
-<h2>Listado de usuarios</h2>
-<br>
-<ol class="list-group list-group-numbered">
-    {{#each user}}
-  <li class="list-group-item">{{name}} 
-        <form action="/admin/eliminar/{{_id}}" method="POST" style="display: inline-block">
-            <button class="btn btn-danger">Eliminar</button>
-        </form></li>
-    {{/each}}
-</ol>
-
-</div>
-<div class="col-md-6">
-    <h2>Listado de vehiculos</h2>
-    <br>
-<ol class="list-group list-group-numbered">
-    {{#each vehicles}}
-  <li class="list-group-item">{{brand}} {{model}}</li>
-    {{/each}}
-</ol>
-</div>
-{{!-- <div class="col-md-4">
-    <h2>Ahorro total de nuestros clientes</h2>
-         <br>
-        <ul class="list-group">
-    {{#each purchase}}
-        <li class="list-group-item">Ahorrados 1.250 euros</li>
-  
-    {{!-- {{/each}} 
-{{!-- </ul> --}}
-{{!-- </div> --}} 
-
-
-</div>
-
-
+    </div>
 </div>
