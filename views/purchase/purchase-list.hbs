@@ -1,0 +1,50 @@
+<div class="container first">
+    <h1>Tus gastos</h1>
+    <hr>
+    <ul class="list-group">
+        {{#each fiteredArr}}
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8">
+                <li>
+                    <div class="each-purchase">
+                        <div class="row d-flex justify-content-around">
+                            <div class="col-5 d-flex align-items-center">
+                                <div class="purchase-text">
+                                    <p class="p-purchase">Gasto: {{amount}} €</p>
+                                    <p class="p-no-margin">Ahorro: {{saving}} €</p>
+                                </div>
+                            </div>
+                            <div class="col-6 align-items-center">
+                                <div class="purchase-buttons">
+                                    <div class="row justify-content-evenly align-items-center g-0">
+                                        <div class="col-sm-5 mt-2 mb-2">
+                                            <a href="/gastos/editar/{{_id}}" class="btn btn-warning edit-btn">Editar</a>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <form action="/gastos/eliminar-gasto/{{_id}}" method="POST">
+                                                <button class="btn btn-danger remove-btn">Eliminar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </div>
+        </div>
+        {{/each}}
+    </ul>
+
+    <p class="d-none" id="pValue">{{page}}</p>
+    <div class="row d-flex justify-content-center">
+        <div class="col">
+            <div class="nexPrev d-flex justify-content-center">
+                <button class="page-btn btn" id="prevBtn">Previus</button>
+                <button class="page-btn btn" id="nextBtn">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/scriptFilter.js"></script>

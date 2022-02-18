@@ -1,0 +1,39 @@
+<div class="container first">
+
+    <h1>Estadísticas</h1>
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-md-10 col-sm-12">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 text-center">
+                    <div class="section">
+                        <h2>Usuarios</h2>
+                        <br>
+                        <ul class="list-group">
+                            {{#each user}}
+                            <li class="list d-flex justify-content-around align-items-center">{{name}}
+                                <form action="/admin/eliminar/{{_id}}" method="POST" style="display: inline-block">
+                                    <button class="btn remove-btn">Eliminar</button>
+                                </form>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="section">
+                        <h2>Vehículos</h2>
+                        <br>
+                        <ul class="list-group">
+                            {{#each vehicles}}
+                            <li class="list d-flex justify-content-center align-items-center">{{brand}} {{model}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container first">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-4">
+
+            <div class="titles">
+                <h1>Crea tu cuenta</h1>
+                <p class="auth-sub">y encuentra los mejores precios</p>
+            </div>
+
+            <form class="auth-form" action="/registro" method="POST">
+
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label input-info">Dirección de email</label>
+                    <input type="email" class="form-control form-input-gray" id="emailInput" name="email">
+                </div>
+
+                <div class="mb-3">
+                    <label for="usernameInput" class="form-label input-info">Nombre de usuario</label>
+                    <input type="text" class="form-control form-input-gray" id="usernameInput" name="name">
+                </div>
+
+                <div class="mb-3">
+                    <label for="pwdInput" class="form-label input-info">Contraseña</label>
+                    <input type="password" class="form-control form-input-gray" id="pwdInput" name="userPwd">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn auth-btn block">Completar registro</button>
+                </div>
+
+                {{#if errorMessage}}
+                <div id="errorMessage">
+                    <p>{{errorMessage}}</p>
+                </div>
+                {{/if}}
+
+            </form>
+        </div>
+    </div>
+
+</div>

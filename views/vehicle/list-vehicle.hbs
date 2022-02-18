@@ -1,0 +1,28 @@
+<div class="container first">
+
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-sm-12">
+      <h1>Elige tu vehículo</h1>
+
+      <ul class="list-group vehicle-list">
+        <div class="row">
+          {{#each vehicle}}
+          <div class="col-sm-12 col-lg-6">
+            <li>
+              <a class="btn btn-primary d-block vehicle-btn" href="/?fuel={{fuelType}}">
+                <p class="vehicle-name">{{brand}} {{model}}</p>
+                <p class="vehicle-fuel">{{fuelType}}</p>
+                <p class="vehicle-average">{{averageFuel}} L/100km</p>
+              </a>
+            </li>
+          </div>
+          {{/each}}
+        </div>
+      </ul>
+
+      <div class="col-12 d-flex justify-content-center">
+        <a class="btn btn-primary green-btn" href="/vehiculos/crear">Añadir vehículo</a>
+      </div>
+    </div>
+  </div>
+</div>
