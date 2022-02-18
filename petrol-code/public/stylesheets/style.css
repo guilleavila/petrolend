@@ -88,16 +88,8 @@ opacity: 0;
 } 
 
 .loader {
-<<<<<<< HEAD
-    /* position: absolute;  */
-    /* position: relative; */
-=======
-    position: absolute; 
->>>>>>> cac398601338f811a24533f652720a7113175a0d
     display: flex;
-    /* padding: 200px; */
     align-items: center;
-    /* background: red; */
     top: 50%;
     left: 85%;
     transform: translate(-50%,-50%);
@@ -112,7 +104,7 @@ opacity: 0;
     }
 }
 .particle {
-    background: #000;
+    background: rgb(255, 255, 255);
     width: 50px;
     height: 50px;
     border-radius: 50%;
