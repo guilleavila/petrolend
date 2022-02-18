@@ -1,8 +1,8 @@
 # Petrol-end
 
 Bienvenidos a Petrol-end.
-Nuestra aplicacion busca la gasolineras  mas cercanas a tu ubicacion, permitiendote elegir el combustible mas barato.
-Registrate, añade tus vehiculos, dinos que combustible usas y ya estas listo para empezar a ahorrar.
+Nuestra aplicación busca las gasolineras  más cercanas a tu ubicación, permitiéndote elegir el combustible más barato.
+Regístrate, añade tus vehículos, dinos qué combustible usas y ya estás listo para empezar a ahorrar.
 Registramos todos tus repostajes para que puedas tener un historial preciso de tus gastos y ahorros.
 
 
@@ -53,7 +53,7 @@ Registramos todos tus repostajes para que puedas tener un historial preciso de t
 ```
 | METHOD    | URL      | DESCRIPTION                | PROTECTED|
 | :-------- | :------- | :------------------------- |:---------|
-| `GET` | `/` | renderiza usuarios y vehiculos (global) |    ADMIN      |
+| `GET` | `/` | renderiza usuarios y vehículos (global) |    ADMIN      |
 | `POST` | `/eliminar/:user_id/delete` | elimina usuario |    ADMIN       |
 
 
@@ -106,4 +106,4 @@ Este es nuestro proyecto para el modulo de back-end.
 
 ## Demo
 
-Proximamente disponible.
+Puedes probar aquí nuestra app --> https://petrolend.herokuapp.com/
