@@ -93,13 +93,9 @@ form {
 
 .loader {
     display: flex;
-<<<<<<< HEAD
-=======
-    padding: 100px;
->>>>>>> 58b1587697aae4b9f1495ac679de2136b06e32e8
     align-items: center;
     top: 50%;
-    left: 80%;
+    left: 86%;
     transform: translate(-50%,-50%) rotate(0deg);
     filter: blur(8px) contrast(10);
 }
@@ -112,11 +108,7 @@ form {
     }
 }
 .particle {
-<<<<<<< HEAD
-    background: rgb(255, 255, 255);
-=======
     background: rgba(230, 230, 230, 0.2);
->>>>>>> 58b1587697aae4b9f1495ac679de2136b06e32e8
     width: 50px;
     height: 50px;
     border-radius: 50%;
