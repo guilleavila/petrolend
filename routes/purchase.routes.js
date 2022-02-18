@@ -73,7 +73,7 @@ router.post('/editar/:id', (req, res, next) => {
 
   Purchase
     .findByIdAndUpdate(id, { amount, saving }, { new: true })
-    .then(() => res.redirect('/gastos'))
+    .then(() => res.redirect('/gastos?page=1'))
     .catch(err => next(err))
 })
 
@@ -85,7 +85,7 @@ router.post('/eliminar-gasto/:id', isLoggedIn, (req, res, next) => {
 
   Purchase
     .findByIdAndDelete(id)
-    .then(res.redirect('/gastos'))
+    .then(res.redirect('/gastos?page=1'))
     .catch(err => next(err))
 })
 
