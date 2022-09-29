@@ -76,18 +76,13 @@ function callback(results, status) {
 
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            console.log('Estas son las gasolineras cercanas ----->', results[i]);
-            // console.log('Esta es su location ------>', results[i].geometry.location.lat())
-            // console.log('Esta es su location ------>', results[i].geometry.location.lng())
 
             const gasStation = {
                 lat: results[i].geometry.location.lat(),
                 lng: results[i].geometry.location.lng()
             }
-            // pushear a un array los datos que queremos
             gasLocations.push(gasStation)
         }
-        // console.log(gasLocations)
 
 
         // Hacer una llamada a axios.post para que mande al back la info de las gasolineras de google, pasándole
