@@ -1,14 +1,30 @@
-
 # Petrol-end
 
-Aplicación para comparar precios de gasolineras.
-
-
+Bienvenidos a Petrol-end.
+Nuestra aplicación busca la gasolineras  más cercanas a tu ubicación, permitiéndote elegir el combustible más barato.
+Regístrate, añade tus vehículos, dinos qué combustible usas y ya estás listo para empezar a ahorrar.
+Registramos todos tus repostajes para que puedas tener un historial preciso de tus gastos y ahorros.
 
 
 ### RUTAS
 
+
+#### HOME
+
+```http
+/ 
+```
+| METHOD    | URL      | DESCRIPTION                | PROTECTED|
+| :-------- | :------- | :------------------------- |:---------|
+| `GET` | `/` | mapa de la home |   Log       |
+| `POST` | `/` | res.json de gasolineras |   Log       |
+| `GET` | `/?fuel={typeFuel}` | mapa con gasolineras |   Log       |
+
 #### AUTH
+
+```http
+/ 
+```
 
 | METHOD    | URL      | DESCRIPTION                | PROTECTED|
 | :-------- | :------- | :------------------------- |:---------|
@@ -17,6 +33,28 @@ Aplicación para comparar precios de gasolineras.
 | `GET` | `/iniciar-sesion` | renderizar vista |     Todos     |
 | `POST` | `/iniciar-sesion` | enviar formulario |   Registrados      |
 | `POST` | `/cerrar-sesion` | enviar formulario |      Log   |
+
+
+#### PERFIL
+
+```http
+/perfil
+```
+| METHOD    | URL      | DESCRIPTION                | PROTECTED|
+| :-------- | :------- | :------------------------- |:---------|
+| `GET` | `/` | renderiza el perfil del usuario |     Log     |
+
+
+
+#### ADMIN
+
+```http
+/admin
+```
+| METHOD    | URL      | DESCRIPTION                | PROTECTED|
+| :-------- | :------- | :------------------------- |:---------|
+| `GET` | `/` | renderiza usuarios y vehiculos (global) |    ADMIN      |
+| `POST` | `/eliminar/:user_id/delete` | elimina usuario |    ADMIN       |
 
 
 
@@ -36,18 +74,6 @@ Aplicación para comparar precios de gasolineras.
 | `POST` | `/eliminar` |envía formulario |   Log       |
 
 
-
-#### HOME
-
-```http
-/ 
-```
-| METHOD    | URL      | DESCRIPTION                | PROTECTED|
-| :-------- | :------- | :------------------------- |:---------|
-| `GET` | `/` | mapa de la home |   Log       |
-
-
-
 #### GASTOS
 
 ```http
@@ -56,36 +82,28 @@ Aplicación para comparar precios de gasolineras.
 
 | METHOD    | URL      | DESCRIPTION                | PROTECTED|
 | :-------- | :------- | :------------------------- |:---------|
+| `GET` | `/` | renderiza listado gastos |    Log      |
 | `GET` | `/crear` | renderiza formulario |    Log      |
 | `POST` | `/crear` | envía formulario |    Log      |
+| `GET` | `/editar/:id` | renderiza edicion |    Log      |
+| `POST` | `/editar/:id` | envía formulario |    Log      |
+| `POST` | `/eliminar-gasto/:id` | envía formulario |    Log      |
 
 
-#### PERFIL
-
-```http
-/perfil
-```
-| METHOD    | URL      | DESCRIPTION                | PROTECTED|
-| :-------- | :------- | :------------------------- |:---------|
-| `GET` | `/:user_id` | renderiza el perfil del usuario |     Log     |
-| `GET` | `/:user_id/editar` | renderiza formulario |     Log     |
-| `POST` | `/:user_id/editar` | envía el formulario |    Log      |
-| `GET` | `/gastos` | renderiza gastos y formulario |     Log     |
-| `POST` | `/gastos` | envía formulario (axios) |       Log   |
-| `POST` | `/gastos/eliminar` | elimina gasto(axios) |     Log     |
-| `GET` | `/gastos/:gasto_id/editar` | renderiza formulario |      Log    |
-| `POST` | `/gastos/:gasto_id/editar` | envía formulario |    Log      |
+## Authors
+  
+- [@guilleavila](https://www.github.com/guilleavila) 
+- [@riiGalaxy](https://www.github.com/riiGalaxy)
 
 
-#### ADMIN
+## 🛠 Skills
+Javascript, Express, MongoDB, Node, Mongoose, Api's, HTML, CSS...
 
-```http
-/admin
-```
-| METHOD    | URL      | DESCRIPTION                | PROTECTED|
-| :-------- | :------- | :------------------------- |:---------|
-| `GET` | `/datos` | renderiza usuarios y gastos (global) |    ADMIN      |
-| `GET` | `/datos/gastos` | renderiza gastos (todos) |    ADMIN       |
-| `GET` | `/datos/usuarios` | renderiza usuarios (todos) |     ADMIN      |
-| `GET` | `/datos/usuarios/:user_id` | renderiza detalles de un usuario |       ADMIN    |
-| `POST` | `/datos/usuarios/:user_id/delete` | elimina usuario |    ADMIN       |
+## 🚀 About Us
+Somos Guillermo Avila y Ricardo Molpeceres estudiantes del bootcamp de desarrollo Web en Ironhack Madrid.
+Este es nuestro proyecto para el modulo de back-end.
+
+
+## Demo
+
+Próximamente disponible.

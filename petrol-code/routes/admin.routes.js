@@ -1,33 +1,32 @@
 const router = require('express').Router()
-
+const { isLoggedIn, checkRole } = require("../middleware/route-guard")
 const User = require('./../models/User.model')
 const Vehicle = require("../models/Vehicle.model")
 const Purchase = require("../models/Purchase.model")
 
-const { isLoggedIn, checkRole } = require("../middleware/route-guard")
-const { isAdmin } = require("../utils")
 
+// -- STATS --
 
-//stats
 router.get("/", isLoggedIn, checkRole("ADMIN"), (req, res, next) => {
-    
-    let listUserPromise = User.find()
-    let listVehiclePromise = Vehicle.find()
-    let listPurchasePromise = Purchase.find()
+
+    const listUserPromise = User.find()
+    const listVehiclePromise = Vehicle.find()
+    const listPurchasePromise = Purchase.find()
 
     Promise.all([listUserPromise, listVehiclePromise, listPurchasePromise])
-    .then((values) => {
-        res.render("./admin/stats-admin", 
-        {
-            user: values[0],
-            vehicles: values[1],
-            purchase: values[2]
+        .then((values) => {
+            res.render("./admin/stats-admin",
+                {
+                    user: values[0],
+                    vehicles: values[1],
+                    purchase: values[2]
+                })
         })
-    })
-    .catch((err) => next(err))
+        .catch((err) => next(err))
 })
 
-//delete user
+
+// -- DELETE USER --
 
 router.post("/eliminar/:user_id", isLoggedIn, checkRole("ADMIN"), (req, res, next) => {
     const { user_id } = req.params
@@ -38,4 +37,3 @@ router.post("/eliminar/:user_id", isLoggedIn, checkRole("ADMIN"), (req, res, nex
 })
 
 module.exports = router
- 

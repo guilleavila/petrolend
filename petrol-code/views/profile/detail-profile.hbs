@@ -36,7 +36,7 @@
                 {{#each vehicles}}
                 <div class="col-12">
                   <div class="row">
-                    <li>
+                    <li class="d-flex flex-column align-items-center">
                       <div class="col-12 align-items-center">
                         <a class="btn btn-primary d-block vehicle-btn" href="/?fuel={{fuelType}}">
                           {{!-- <img src="../../images/logo-white.png" alt="vehículo"> --}}
@@ -46,7 +46,7 @@
                         </a>
                       </div>
                       <div class="col-5 justify-content-center"><a href="/vehiculos/editar/{{_id}}"
-                          class="btn btn-warning edit-btn profile-btns">Editar</a></div>
+                          class="btn btn-warning edit-btn profile-btns remove-trampa">Editar</a></div>
                       <div class="col-5">
                         <form action="/vehiculos/eliminar/{{_id}}" method="POST" style="display: inline-block">
                           <button class="btn btn-danger d-block remove-trampa remove-btn profile-btns">Eliminar</button>

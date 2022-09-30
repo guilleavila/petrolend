@@ -3,8 +3,12 @@ const { isLoggedIn } = require("../middleware/route-guard");
 const { calculateSaving } = require('../utils/index')
 const Purchase = require("../models/Purchase.model");
 
+
+// -- GET PURCHASES --
+
 let prevPage = 0
 let nextPage = 0
+
 router.get("/", isLoggedIn, (req, res, next) => {
 
   const { page } = req.query
@@ -42,7 +46,8 @@ router.get("/", isLoggedIn, (req, res, next) => {
     .catch(err => next(err))
 })
 
-// create purchase
+
+// -- CREATE PURCHASE --
 
 router.post("/crear", isLoggedIn, (req, res, next) => {
   const { amount, purchasePrice, highestPrice } = req.body;
@@ -56,7 +61,8 @@ router.post("/crear", isLoggedIn, (req, res, next) => {
 })
 
 
-// edit 
+// -- GET EDIT PURCHASE INFO -- 
+
 router.get('/editar/:id', isLoggedIn, (req, res, next) => {
   const { id } = req.params
 
@@ -66,6 +72,9 @@ router.get('/editar/:id', isLoggedIn, (req, res, next) => {
     .catch(err => next(err))
 })
 
+
+// -- POST EDIT PURCHASE INFO -- 
+
 router.post('/editar/:id', (req, res, next) => {
   const { id } = req.params
   const { amount, highestPrice, purchasePrice } = req.body
@@ -73,19 +82,19 @@ router.post('/editar/:id', (req, res, next) => {
 
   Purchase
     .findByIdAndUpdate(id, { amount, saving }, { new: true })
-    .then(() => res.redirect('/gastos'))
+    .then(() => res.redirect('/gastos?page=1'))
     .catch(err => next(err))
 })
 
 
-// delete
+// -- DELETE PURCHASE --
 
 router.post('/eliminar-gasto/:id', isLoggedIn, (req, res, next) => {
   const { id } = req.params
 
   Purchase
     .findByIdAndDelete(id)
-    .then(res.redirect('/gastos'))
+    .then(res.redirect('/gastos?page=1'))
     .catch(err => next(err))
 })
 

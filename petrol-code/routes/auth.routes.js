@@ -4,7 +4,9 @@ const User = require('./../models/User.model')
 const { isLoggedIn } = require('../middleware/route-guard')
 const saltRounds = 10
 
-// sign-up
+
+// -- SIGNUP --
+
 router.get('/registro', (req, res, next) => res.render('auth/signup-form'))
 
 router.post('/registro', (req, res, next) => {
@@ -19,7 +21,8 @@ router.post('/registro', (req, res, next) => {
 })
 
 
-//login
+// -- LOGIN --
+
 router.get('/iniciar-sesion', (req, res, next) => {
     res.render('auth/login-form')
 })
@@ -51,7 +54,8 @@ router.post('/iniciar-sesion', (req, res, next) => {
 })
 
 
-//logout
+// -- LOGOUT --
+
 router.post('/cerrar-sesion', isLoggedIn, (req, res, next) => {
     req.app.locals.isLoggedIn = false
     req.app.locals.isAdmin = false

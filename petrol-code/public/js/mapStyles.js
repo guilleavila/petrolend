@@ -1,5 +1,5 @@
 const mapStyles = {
-    prueba1: [
+    styles: [
         {
             "stylers": [
                 {

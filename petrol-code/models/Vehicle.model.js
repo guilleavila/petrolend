@@ -25,7 +25,6 @@ const vehicleSchema = new Schema(
     },
     averageFuel: {
       type: Number,
-      // match: uu.dd
       required: true,
     },
     owner: {

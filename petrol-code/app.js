@@ -13,6 +13,7 @@ require("./config/session.config")(app)
 
 app.locals.appTitle = `PETROL-END`
 app.locals.logoImage = "/images/logo.svg"
+app.locals.apiKey = process.env.API_KEY
 
 //ROUTES
 const indexRouter = require("./routes/index.routes");
