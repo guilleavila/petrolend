@@ -10,21 +10,21 @@ const { isAdmin } = require("../utils")
 
 //stats
 router.get("/", isLoggedIn, checkRole("ADMIN"), (req, res, next) => {
-    
-    let listUserPromise = User.find()
-    let listVehiclePromise = Vehicle.find()
-    let listPurchasePromise = Purchase.find()
+
+    const listUserPromise = User.find()
+    const listVehiclePromise = Vehicle.find()
+    const listPurchasePromise = Purchase.find()
 
     Promise.all([listUserPromise, listVehiclePromise, listPurchasePromise])
-    .then((values) => {
-        res.render("./admin/stats-admin", 
-        {
-            user: values[0],
-            vehicles: values[1],
-            purchase: values[2]
+        .then((values) => {
+            res.render("./admin/stats-admin",
+                {
+                    user: values[0],
+                    vehicles: values[1],
+                    purchase: values[2]
+                })
         })
-    })
-    .catch((err) => next(err))
+        .catch((err) => next(err))
 })
 
 //delete user
@@ -38,4 +38,3 @@ router.post("/eliminar/:user_id", isLoggedIn, checkRole("ADMIN"), (req, res, nex
 })
 
 module.exports = router
- 
